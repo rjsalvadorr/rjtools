@@ -1,0 +1,26 @@
+{
+    "markdown.preview.scrollPreviewWithEditorSelection": false,
+    "editor.rulers": [
+        80,
+        100,
+        120
+    ],
+    "extensions.ignoreRecommendations": true,
+    "editor.renderWhitespace": "all",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "javascript.validate.enable": false,
+    "flow.useNPMPackagedFlow": true,
+    "window.zoomLevel": 0,
+    "eslint.autoFixOnSave": true,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "gitlens.keymap": "alternate"
+}
