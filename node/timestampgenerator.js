@@ -45,7 +45,12 @@ module.exports = TimestampGenerator;
 
 if(DEBUG_MODE) {
     var timestampGenerator = new TimestampGenerator();
-    console.log('getSimpleDate()', timestampGenerator.getSimpleDate())
-    console.log('getYearDay()', timestampGenerator.getYearDay())
-    console.log('getYearWeek()', timestampGenerator.getYearWeek())
+    console.log('DEBUG MODE ENABLED');
+    console.log('getSimpleDate()', timestampGenerator.getSimpleDate());
+    console.log('getYearDay()', timestampGenerator.getYearDay());
+    console.log('getYearWeek()', timestampGenerator.getYearWeek());
+    console.log('getTimestamp()', timestampGenerator.getTimestamp());
+    console.log('getTimestampMilliseconds()', timestampGenerator.getTimestampMilliseconds());
+    console.log('getTimestampHex()', timestampGenerator.getTimestampHex());
+    console.log('getTimestampMillisecondsHex()', timestampGenerator.getTimestampMillisecondsHex());
 }
