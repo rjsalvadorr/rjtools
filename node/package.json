@@ -12,5 +12,8 @@
   },
   "keywords": [],
   "author": "RJ Salvador",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.21.0"
+  }
 }
