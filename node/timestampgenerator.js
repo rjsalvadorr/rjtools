@@ -39,18 +39,21 @@ class TimestampGenerator {
     getTimestampMillisecondsHex() {
         return this.getTimestampMilliseconds().toString(16);
     }
+
+    getAllTimestamps() {
+        var finalText = '';
+        finalText += 'Simple date:  ' + this.getSimpleDate() + '\r\n';
+        finalText += 'Day of year:  ' + this.getYearDay() + '\r\n';
+        finalText += 'Week of year:  ' + this.getYearWeek() + '\r\n';
+        finalText += 'UNIX timestamp (seconds):  ' + this.getTimestamp() + '\r\n';
+        finalText += 'UNIX timestamp (milliseconds):  ' + this.getTimestampMilliseconds() + '\r\n';
+        finalText += 'UNIX timestamp (seconds in hex):  ' + this.getTimestampHex() + '\r\n';
+        finalText += 'UNIX timestamp (milliseconds in hex):  ' + this.getTimestampMillisecondsHex() + '\r\n';
+        return finalText;
+    }
 };
 
 module.exports = TimestampGenerator;
 
-if(DEBUG_MODE) {
-    var timestampGenerator = new TimestampGenerator();
-    console.log('DEBUG MODE ENABLED');
-    console.log('getSimpleDate()', timestampGenerator.getSimpleDate());
-    console.log('getYearDay()', timestampGenerator.getYearDay());
-    console.log('getYearWeek()', timestampGenerator.getYearWeek());
-    console.log('getTimestamp()', timestampGenerator.getTimestamp());
-    console.log('getTimestampMilliseconds()', timestampGenerator.getTimestampMilliseconds());
-    console.log('getTimestampHex()', timestampGenerator.getTimestampHex());
-    console.log('getTimestampMillisecondsHex()', timestampGenerator.getTimestampMillisecondsHex());
-}
+var tGen = new TimestampGenerator();
+console.log(tGen.getAllTimestamps());
