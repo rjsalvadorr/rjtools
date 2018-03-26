@@ -1,9 +1,7 @@
 @ECHO OFF
 
 ECHO Generating timestamps...
-
+ECHO.
 node ./node/timestamp-generator.js
-
-ECHO Timestamps ready!
 
 PAUSE
