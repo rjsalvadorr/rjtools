@@ -14,6 +14,7 @@
   "author": "RJ Salvador",
   "license": "ISC",
   "dependencies": {
-    "moment": "^2.21.0"
+    "moment": "^2.21.0",
+    "uuid": "^3.2.1"
   }
 }

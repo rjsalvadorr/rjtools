@@ -2,7 +2,7 @@
 
 ECHO Generating timestamps...
 
-node ./node/timestampgenerator.js
+node ./node/timestamp-generator.js
 
 ECHO Timestamps ready!
 
