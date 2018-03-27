@@ -2,6 +2,6 @@
 
 ECHO Generating random words...
 ECHO.
-node ./node/random-word-generator.js
+node ./node/tools/random-word-generator.js
 
 PAUSE

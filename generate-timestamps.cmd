@@ -2,6 +2,6 @@
 
 ECHO Generating timestamps...
 ECHO.
-node ./node/timestamp-generator.js
+node ./node/tools/timestamp-generator.js
 
 PAUSE

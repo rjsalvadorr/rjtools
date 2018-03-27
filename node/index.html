@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>rjtools</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  </head>
+  <body>
+    <h1>rjtools</h1>
+
+    <input class="btn" id="btnTimestamps" type="button" onclick="handleTimestamps()" value="Timestamps" />
+    <input class="btn" id="btnUUID" type="button" onclick="handleUUID()" value="UUID" />
+    <input class="btn" id="btnRandomWords" type="button" onclick="handleRandomWords()" value="Random Words" />
+    
+    <textarea id="output"></textarea>
+    
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+</html>

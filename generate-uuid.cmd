@@ -2,6 +2,6 @@
 
 ECHO Generating UUID...
 ECHO.
-node ./node/uuid-generator.js
+node ./node/tools/uuid-generator.js
 
 PAUSE

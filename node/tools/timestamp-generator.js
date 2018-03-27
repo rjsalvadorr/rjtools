@@ -42,13 +42,29 @@ class TimestampGenerator {
 
     getAllTimestamps() {
         var finalText = '';
-        finalText += 'Simple date:  ' + this.getSimpleDate() + '\r\n';
-        finalText += 'Day of year:  ' + this.getYearDay() + '\r\n';
-        finalText += 'Week of year:  ' + this.getYearWeek() + '\r\n';
-        finalText += 'UNIX timestamp (seconds):  ' + this.getTimestamp() + '\r\n';
-        finalText += 'UNIX timestamp (milliseconds):  ' + this.getTimestampMilliseconds() + '\r\n';
-        finalText += 'UNIX timestamp (seconds in hex):  ' + this.getTimestampHex() + '\r\n';
-        finalText += 'UNIX timestamp (milliseconds in hex):  ' + this.getTimestampMillisecondsHex() + '\r\n';
+        var CRLF = '\r\n';
+
+        finalText += 'Simple date:' + CRLF;
+        finalText += this.getSimpleDate() + CRLF + CRLF;
+
+        finalText += 'Day of year:' + CRLF;
+        finalText += this.getYearDay() + CRLF + CRLF;
+
+        finalText += 'Week of year:' + CRLF;
+        finalText += this.getYearWeek() + CRLF + CRLF;
+        
+        finalText += 'UNIX timestamp (seconds):' + CRLF;
+        finalText += this.getTimestamp() + CRLF + CRLF;
+
+        finalText += 'UNIX timestamp (milliseconds):' + CRLF;
+        finalText += this.getTimestampMilliseconds() + CRLF + CRLF;
+
+        finalText += 'UNIX timestamp (seconds in hex):' + CRLF;
+        finalText += this.getTimestampHex() + CRLF + CRLF;
+        
+        finalText += 'UNIX timestamp (milliseconds in hex):' + CRLF;
+        finalText += this.getTimestampMillisecondsHex() + CRLF;
+
         return finalText;
     }
 };
