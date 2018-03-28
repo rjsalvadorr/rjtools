@@ -12,6 +12,11 @@ class TimestampGenerator {
         return date.toLowerCase();
     }
 
+    getLongDate() {
+        var date = this.moment().format('dddd, MMMM DD YYYY');
+        return date;
+    }
+
     getYearDay() {
         var year = this.moment().format('YYYY');
         var day = this.moment().format('DDDD');

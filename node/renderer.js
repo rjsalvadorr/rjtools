@@ -6,31 +6,40 @@ var Utils = require('./tools/utils');
 var TimestampGenerator = require('./tools/timestamp-generator');
 var UUIDGenerator = require('./tools/uuid-generator');
 var RandomWordGenerator = require('./tools/random-word-generator');
+var MarkdownGenerator = require('./tools/markdown-generator');
+
+var outputTextarea = document.querySelector('#output');
 
 function handleTimestamps() {
-  document.querySelector('#output').value = "TEST1";
   var tGen = new TimestampGenerator();
   var outVal = tGen.getAllTimestamps();
-  document.querySelector('#output').value = outVal;
+  outputTextarea.value = outVal;
 }
 
 function handleUUID() {
-  document.querySelector('#output').value = "TEST2";
   var idGen = new UUIDGenerator();
   var outVal = idGen.getUUID() + '\r\n';
   outVal += idGen.getUUID() + '\r\n';
   outVal += idGen.getUUID() + '\r\n';
-  document.querySelector('#output').value = outVal;
+  outputTextarea.value = outVal;
 }
 
 function handleRandomWords() {
-  document.querySelector('#output').value = "TEST3";
   var wordGen = new RandomWordGenerator();
   var utils = new Utils();
   var outVal = utils.convertListToString(wordGen.getDefaultRandomWords());
-  document.querySelector('#output').value = outVal;
+  outputTextarea.value = outVal;
+}
+
+function handleMarkdown() {
+  var mdGen = new MarkdownGenerator();
+  var tGen = new TimestampGenerator();
+  var date = tGen.getLongDate();
+  var outVal = mdGen.generateMarkdownTemplate(date);
+  outputTextarea.value = outVal;
 }
 
 document.querySelector('#btnTimestamps').addEventListener('click', handleTimestamps);
 document.querySelector('#btnUUID').addEventListener('click', handleUUID);
 document.querySelector('#btnRandomWords').addEventListener('click', handleRandomWords);
+document.querySelector('#btnMarkdown').addEventListener('click', handleMarkdown);
