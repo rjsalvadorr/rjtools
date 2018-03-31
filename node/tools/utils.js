@@ -6,14 +6,21 @@ class Utils {
 
   convertListToString(list) {
     var str = '';
+    var LF = '\n';
     var CRLF = '\r\n';
 
-    list.forEach(function(item) {
-      str += item + CRLF;
+    list.forEach(function (item) {
+      str += item + LF;
     });
 
     return str;
   }
+
+  getFileContents(filePath) {
+    var fs = require('fs');
+    var buffer = fs.readFileSync(filePath);
+    return buffer.toString();
+  }
 }
 
-module.exports = Utils;
+module.exports = new Utils();

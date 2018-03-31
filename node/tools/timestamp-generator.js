@@ -75,6 +75,3 @@ class TimestampGenerator {
 };
 
 module.exports = TimestampGenerator;
-
-var tGen = new TimestampGenerator();
-console.log(tGen.getAllTimestamps());

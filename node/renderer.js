@@ -2,7 +2,7 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-var Utils = require('./tools/utils');
+var utils = require('./tools/utils');
 var TimestampGenerator = require('./tools/timestamp-generator');
 var UUIDGenerator = require('./tools/uuid-generator');
 var RandomWordGenerator = require('./tools/random-word-generator');
@@ -26,7 +26,7 @@ function handleUUID() {
 
 function handleRandomWords() {
   var wordGen = new RandomWordGenerator();
-  var utils = new Utils();
+  // var utils = new Utils();
   var outVal = utils.convertListToString(wordGen.getDefaultRandomWords());
   outputTextarea.value = outVal;
 }

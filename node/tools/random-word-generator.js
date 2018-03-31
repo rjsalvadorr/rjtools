@@ -1,4 +1,3 @@
-var Utils = require('./utils');
 var NUM_WORDS = 12;
 
 class RandomWordGenerator {
@@ -27,7 +26,3 @@ class RandomWordGenerator {
 }
 
 module.exports = RandomWordGenerator;
-
-var wordGen = new RandomWordGenerator();
-var utils = new Utils();
-console.log(utils.convertListToString(wordGen.getDefaultRandomWords()));
