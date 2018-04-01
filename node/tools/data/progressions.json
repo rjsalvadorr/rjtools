@@ -1,0 +1,105 @@
+{
+  "progressions": [
+  {
+    "id": 1,
+    "group": "basic progressions",
+    "part1": "|  I  |  iv  |  II  |  v  |",
+    "part2": "|  VI  |  ii(6/3)  |  V7  |  I  |"
+  },
+  {
+    "id": 2,
+    "group": "basic progressions",
+    "part1": "|  I  |  V  |  I  |  V  |",
+    "part2": "|  I(6/3)  |  IV  |  V7  |  I  |"
+  },
+  {
+    "id": 3,
+    "group": "basic progressions",
+    "part1": "|  I  |  -/-  |  I  |  -/-  |",
+    "part2": "|  I(6/3)  |  IV  |  V7  |  I  |"
+  },
+  {
+    "id": 4,
+    "group": "basic progressions",
+    "part1": "|  I  |  iv  |  II  |  v  |",
+    "part2": "|  vi  |  ii(6/3)  |  V7  |  I  |"
+  },
+  {
+    "id": 5,
+    "group": "basic progressions",
+    "part1": "|  I  |  IV  |  ii(6/3)  |  V  |",
+    "part2": "|  I(6/3)  |  vi  |  ii(6/3)  V7  |  i  |"
+  },
+  {
+    "id": 6,
+    "group": "basic progressions",
+    "part1": "|  I  |  IV  |  ii(6/3)  |  V  |",
+    "part2": "|  I(6/3)  |  ii(6/3)  |  I(6/4)  V7  |  I  |"
+  },
+  {
+    "id": 7,
+    "group": "basic progressions",
+    "part1": "|  I  |  V  |  V7  |  I  |",
+    "part2": "|  I(6/3)  |  IV  |  I(6/4)  V7  |  I  |"
+  },
+  {
+    "id": 8,
+    "group": "starting away from tonic",
+    "part1": "|  IV  |  I(6/3)  |  V  |  I  |",
+    "part2": "|  IV  |  I(6/3)  |  ii(6/3)  V7  |  I  |"
+  },
+  {
+    "id": 9,
+    "group": "starting away from tonic",
+    "part1": "|  IV  |  V  |  I  |  vi  |",
+    "part2": "|  ii(6/3)  |  V  |  I  V7  |  I  |"
+  },
+  {
+    "id": 10,
+    "group": "starting away from tonic",
+    "part1": "|  V  |  I(6/3)  |  ii(6/3)  |  V  |",
+    "part2": "|  I  |  I(6/3)  |  V7  |  I  |"
+  },
+  {
+    "id": 11,
+    "group": "ending on half-cadence",
+    "part1": "|  I  |  -/-  |  IV  |  V  |",
+    "part2": "|  I  |  IV  |  I(6/3)  |    |"
+  },
+  {
+    "id": 12,
+    "group": "ending on half-cadence",
+    "part1": "|    |    |    |    |",
+    "part2": "|    |    |    |    |"
+  },
+  {
+    "id": 13,
+    "group": "ending on half-cadence",
+    "part1": "|    |    |    |    |",
+    "part2": "|    |    |    |    |"
+  },
+  {
+    "id": 0,
+    "group": "extra progressions",
+    "part1": "|    |    |    |    |",
+    "part2": "|    |    |    |    |"
+  },
+  {
+    "id": 0,
+    "group": "extra progressions",
+    "part1": "|    |    |    |    |",
+    "part2": "|    |    |    |    |"
+  },
+  {
+    "id": 0,
+    "group": "extra progressions",
+    "part1": "|    |    |    |    |",
+    "part2": "|    |    |    |    |"
+  },
+  {
+    "id": 0,
+    "group": "",
+    "part1": "|    |    |    |    |",
+    "part2": "|    |    |    |    |"
+  }]
+}
