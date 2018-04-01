@@ -1,9 +1,10 @@
 {
+  "numProgressions": 32,
   "progressions": [
   {
     "id": 1,
     "group": "basic progressions",
-    "part1": "|  I  |  iv  |  II  |  v  |",
+    "part1": "|  I  |  IV  |  ii  |  V  |",
     "part2": "|  VI  |  ii(6/3)  |  V7  |  I  |"
   },
   {
@@ -21,7 +22,7 @@
   {
     "id": 4,
     "group": "basic progressions",
-    "part1": "|  I  |  iv  |  II  |  v  |",
+    "part1": "|  I  |  IV  |  ii  |  V  |",
     "part2": "|  vi  |  ii(6/3)  |  V7  |  I  |"
   },
   {
@@ -64,42 +65,132 @@
     "id": 11,
     "group": "ending on half-cadence",
     "part1": "|  I  |  -/-  |  IV  |  V  |",
-    "part2": "|  I  |  IV  |  I(6/3)  |    |"
+    "part2": "|  I  |  IV  |  I(6/3)  ii(6/3)  |  I(6/4)  V  |"
   },
   {
     "id": 12,
     "group": "ending on half-cadence",
-    "part1": "|    |    |    |    |",
-    "part2": "|    |    |    |    |"
+    "part1": "|  I  |  IV  |  ii  |  V  |",
+    "part2": "|  I  |  vi  |  V7/V  |  V  |"
   },
   {
     "id": 13,
     "group": "ending on half-cadence",
-    "part1": "|    |    |    |    |",
-    "part2": "|    |    |    |    |"
+    "part1": "|  I  |  IV  |  vii°  |  iii  |",
+    "part2": "|  vi  |  ii(6/3)  |  vii°7/V  |  V  |"
   },
   {
-    "id": 0,
+    "id": 14,
     "group": "extra progressions",
-    "part1": "|    |    |    |    |",
-    "part2": "|    |    |    |    |"
+    "part1": "|  I  |  IV  |  ii  |  V  |",
+    "part2": "|  I(6/3)  |  vi  |  ii(6/3)  V7  |  I  |"
   },
   {
-    "id": 0,
+    "id": 15,
     "group": "extra progressions",
-    "part1": "|    |    |    |    |",
-    "part2": "|    |    |    |    |"
+    "part1": "|  I  |  iii  |  IV  |  ii  |",
+    "part2": "|  V  |  vi  ii(6/3)  |  I(6/4)  V7  |  I  |"
   },
   {
-    "id": 0,
+    "id": 16,
     "group": "extra progressions",
-    "part1": "|    |    |    |    |",
-    "part2": "|    |    |    |    |"
+    "part1": "|  I  |  V7/ii  |  ii  |  V7/IV  |",
+    "part2": "|  IV  |  I(6/4)  V7  |  V7  |  II  |"
   },
   {
-    "id": 0,
-    "group": "",
-    "part1": "|    |    |    |    |",
-    "part2": "|    |    |    |    |"
+    "id": 17,
+    "group": "basic progressions (minor)",
+    "part1": "|  i  |  iv  |  ii°  |  V  |",
+    "part2": "|  VI  |  ii°(6/3)  |  V7  |  i  |"
+  },
+  {
+    "id": 18,
+    "group": "basic progressions (minor)",
+    "part1": "|  i  |  V  |  i  |  V  |",
+    "part2": "|  i(6/3)  |  iv  |  V7  |  i  |"
+  },
+  {
+    "id": 19,
+    "group": "basic progressions (minor)",
+    "part1": "|  i  |  -/-  |  i  |  -/-  |",
+    "part2": "|  i(6/3)  |  iv  |  V7  |  i  |"
+  },
+  {
+    "id": 20,
+    "group": "basic progressions (minor)",
+    "part1": "|  i  |  iv  |  ii°  |  V  |",
+    "part2": "|  VI  |  ii°(6/3)  |  V7  |  i  |"
+  },
+  {
+    "id": 21,
+    "group": "basic progressions (minor)",
+    "part1": "|  i  |  iv  |  ii°(6/3)  |  V  |",
+    "part2": "|  i(6/3)  |  VI  |  ii°(6/3)  V7  |  i  |"
+  },
+  {
+    "id": 22,
+    "group": "basic progressions (minor)",
+    "part1": "|  i  |  iv  |  ii°(6/3)  |  V  |",
+    "part2": "|  i(6/3)  |  ii°(6/3)  |  i(6/4)  V7  |  i  |"
+  },
+  {
+    "id": 23,
+    "group": "basic progressions (minor)",
+    "part1": "|  i  |  V  |  V7  |  i  |",
+    "part2": "|  i(6/3)  |  iv  |  i(6/4)  V7  |  i  |"
+  },
+  {
+    "id": 24,
+    "group": "starting away from tonic (minor)",
+    "part1": "|  iv  |  i(6/3)  |  V  |  i  |",
+    "part2": "|  iv  |  i(6/3)  |  ii°(6/3)  V7  |  i  |"
+  },
+  {
+    "id": 25,
+    "group": "starting away from tonic (minor)",
+    "part1": "|  iv  |  V  |  i  |  VI  |",
+    "part2": "|  ii°(6/3)  |  V  |  i  V7  |  i  |"
+  },
+  {
+    "id": 26,
+    "group": "starting away from tonic (minor)",
+    "part1": "|  V  |  i(6/3)  |  ii°(6/3)  |  V  |",
+    "part2": "|  i  |  i(6/3)  |  V7  |  i  |"
+  },
+  {
+    "id": 27,
+    "group": "ending on half-cadence (minor)",
+    "part1": "|  i  |  -/-  |  iv  |  V  |",
+    "part2": "|  i  |  iv  |  i(6/3)  ii°(6/3)  |  i(6/4)  V  |"
+  },
+  {
+    "id": 28,
+    "group": "ending on half-cadence (minor)",
+    "part1": "|  i  |  iv  |  ii°  |  V  |",
+    "part2": "|  i  |  VI  |  V7/V  |  V  |"
+  },
+  {
+    "id": 29,
+    "group": "ending on half-cadence (minor)",
+    "part1": "|  i  |  iv  |  vii°  |  iii  |",
+    "part2": "|  VI  |  ii°(6/3)  |  vii°7/V  |  V  |"
+  },
+  {
+    "id": 30,
+    "group": "extra progressions (minor)",
+    "part1": "|  i  |  iv  |  ii°  |  V  |",
+    "part2": "|  i(6/3)  |  VI  |  ii°(6/3)  V7  |  i  |"
+  },
+  {
+    "id": 31,
+    "group": "extra progressions (minor)",
+    "part1": "|  i  |  iii  |  iv  |  ii°  |",
+    "part2": "|  V  |  VI  ii°(6/3)  |  i(6/4)  V7  |  i  |"
+  },
+  {
+    "id": 32,
+    "group": "extra progressions (minor)",
+    "part1": "|  i  |  V7/ii  |  ii°  |  V7/iv  |",
+    "part2": "|  iv  |  i(6/4)  V7  |  V7  |  i  |"
   }]
 }
