@@ -7,6 +7,7 @@ var TimestampGenerator = require('./tools/timestamp-generator');
 var UUIDGenerator = require('./tools/uuid-generator');
 var RandomWordGenerator = require('./tools/random-word-generator');
 var MarkdownGenerator = require('./tools/markdown-generator');
+var ProgressionGenerator = require('./tools/progression-generator');
 
 var outputTextarea = document.querySelector('#output');
 
@@ -39,7 +40,14 @@ function handleMarkdown() {
   outputTextarea.value = outVal;
 }
 
+function handleRandomProg() {
+  var pGen = new ProgressionGenerator();
+  var outVal = pGen.getRandomPracticeProg();
+  outputTextarea.value = outVal;
+}
+
 document.querySelector('#btnTimestamps').addEventListener('click', handleTimestamps);
 document.querySelector('#btnUUID').addEventListener('click', handleUUID);
 document.querySelector('#btnRandomWords').addEventListener('click', handleRandomWords);
 document.querySelector('#btnMarkdown').addEventListener('click', handleMarkdown);
+document.querySelector('#btnRandomProg').addEventListener('click', handleRandomProg);
