@@ -5,19 +5,26 @@ body {
   padding: 20px;
 }
 
-.btn {
-  padding: 10px;
-  margin-right: 10px;
-  border-radius: 3px;
-}
-
 textarea {
   margin-top: 10px;
   resize: none;
 }
 
+.btn-rj {
+  background-color: #DDDDDD !important;
+}
+
+.btn-rj:hover {
+  background-color: #FFFFFF !important;
+}
+
 textarea#output {
+  color: #111111;
+  background-color: #EEEEEE;
   display: block;
   width: 100%;
   height: 350px;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: normal;
 }
