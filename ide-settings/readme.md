@@ -1,4 +1,6 @@
-# Settings for Visual Studio Code
+# IDE Settings
+
+## Settings for Visual Studio Code
 
 Handy command for standardizing extensions (Bash or Git Bash):  
 `code --list-extensions | xargs -L 1 echo code --install-extension`
