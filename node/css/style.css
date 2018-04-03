@@ -10,12 +10,12 @@ textarea {
   resize: none;
 }
 
-.btn-rj {
+.btn--rj {
   font-size: 13px !important;
   background-color: #DDDDDD !important;
 }
 
-.btn-rj:hover {
+.btn--rj:hover {
   background-color: #FFFFFF !important;
 }
 
