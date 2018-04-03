@@ -2,7 +2,7 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-var utils = require('./tools/utils');
+var utils = require('./utils');
 var TimestampGenerator = require('./timestamp-generator');
 var UUIDGenerator = require('./uuid-generator');
 var RandomWordGenerator = require('./random-word-generator');

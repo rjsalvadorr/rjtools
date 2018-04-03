@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-electron": "electron .",
+    "start-app": "electron .",
     "build-app": "electron-packager . rjtools --platform=win32,linux,darwin --out=build"
   },
   "repository": {
