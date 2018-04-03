@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-electron": "electron ."
+    "start-electron": "electron .",
+    "build-app": "electron-packager . rjtools --platform=win32,linux,darwin"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "electron": "^1.8.4",
+    "electron-packager": "^11.2.0",
     "mdpdf": "^1.6.0"
   }
 }
