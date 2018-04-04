@@ -5,4 +5,4 @@ node_modules/
 
 # Builds from electron-packager
 
-rjtools-*
+build/

@@ -2,12 +2,12 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-var utils = require('./tools/utils');
-var TimestampGenerator = require('./tools/timestamp-generator');
-var UUIDGenerator = require('./tools/uuid-generator');
-var RandomWordGenerator = require('./tools/random-word-generator');
-var MarkdownGenerator = require('./tools/markdown-generator');
-var ProgressionGenerator = require('./tools/progression-generator');
+var utils = require('./utils');
+var TimestampGenerator = require('./timestamp-generator');
+var UUIDGenerator = require('./uuid-generator');
+var RandomWordGenerator = require('./random-word-generator');
+var MarkdownGenerator = require('./markdown-generator');
+var ProgressionGenerator = require('./progression-generator');
 
 var outputTextarea = document.querySelector('#output');
 

@@ -1,5 +1,6 @@
 
 var utils = require('./utils');
+var constants = require('./constants');
 
 class MarkdownGenerator {
   constructor() {
@@ -7,7 +8,7 @@ class MarkdownGenerator {
 
   generateMarkdownTemplate(date) {
     var path = require('path');
-    var filePath = path.join(__dirname, 'templates/template.md');
+    var filePath = path.join(constants.TEMPLATES_DIR, 'template.md');
     var fileStr = utils.getFileContents(filePath);
     return fileStr.replace('{{{date}}}', date);
   }
