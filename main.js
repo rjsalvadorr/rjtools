@@ -16,7 +16,8 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     width: 600,
     height: 690,
-    autoHideMenuBar: true
+    autoHideMenuBar: true,
+    icon: path.join(__dirname, 'img/icon.png')
   })
 
   // and load the index.html of the app.
