@@ -9,7 +9,12 @@ class TimestampGenerator {
 
     getSimpleDate() {
         var date = this.moment().format('YYYY-MMM-DD');
-        return date.toLowerCase();
+        return date.toUpperCase();
+    }
+
+    getSimpleDateTime() {
+        var date = this.moment().format('YYYY-MMM-DD HH:mm');
+        return date.toUpperCase();
     }
 
     getLongDate() {
@@ -20,13 +25,13 @@ class TimestampGenerator {
     getYearDay() {
         var year = this.moment().format('YYYY');
         var day = this.moment().format('DDDD');
-        return year + '-day-' + day;
+        return 'Day #' + day + ' in ' + year;
     }
 
     getYearWeek() {
         var year = this.moment().format('YYYY');
         var week = this.moment().format('ww');
-        return year + '-week-' + week;
+        return 'Week #' + week + ' in ' + year;
     }
 
     getTimestamp() {
@@ -49,26 +54,19 @@ class TimestampGenerator {
         var finalText = '';
         var CRLF = '\r\n';
 
-        finalText += 'Simple date:' + CRLF;
-        finalText += this.getSimpleDate() + CRLF + CRLF;
+        finalText += 'DATE AND TIME: \r\n' + this.getSimpleDateTime() + CRLF + CRLF;
 
-        finalText += 'Day of year:' + CRLF;
-        finalText += this.getYearDay() + CRLF + CRLF;
+        finalText += 'DAY OF YEAR: \r\n' + this.getYearDay() + CRLF + CRLF;
 
-        finalText += 'Week of year:' + CRLF;
-        finalText += this.getYearWeek() + CRLF + CRLF;
+        finalText += 'WEEK OF YEAR: \r\n' + this.getYearWeek() + CRLF + CRLF;
         
-        finalText += 'UNIX timestamp (seconds):' + CRLF;
-        finalText += this.getTimestamp() + CRLF + CRLF;
+        finalText += 'UNIX TIMESTAMP (seconds): \r\n' + this.getTimestamp() + CRLF + CRLF;
 
-        finalText += 'UNIX timestamp (milliseconds):' + CRLF;
-        finalText += this.getTimestampMilliseconds() + CRLF + CRLF;
+        finalText += 'UNIX TIMESTAMP (milliseconds): \r\n' + this.getTimestampMilliseconds() + CRLF + CRLF;
 
-        finalText += 'UNIX timestamp (seconds in hex):' + CRLF;
-        finalText += this.getTimestampHex() + CRLF + CRLF;
+        finalText += 'UNIX TIMESTAMP (seconds in hex): \r\n' + this.getTimestampHex() + CRLF + CRLF;
         
-        finalText += 'UNIX timestamp (milliseconds in hex):' + CRLF;
-        finalText += this.getTimestampMillisecondsHex() + CRLF;
+        finalText += 'UNIX TIMESTAMP (milliseconds in hex): \r\n' + this.getTimestampMillisecondsHex() + CRLF;
 
         return finalText;
     }
