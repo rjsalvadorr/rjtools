@@ -12,4 +12,3 @@ class UUIDGenerator {
 module.exports = UUIDGenerator;
 
 var idGen = new UUIDGenerator();
-console.log(idGen.getUUID() + '\r\n');

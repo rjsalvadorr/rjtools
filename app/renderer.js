@@ -22,6 +22,11 @@ function handleUUID() {
   var outVal = idGen.getUUID() + '\r\n';
   outVal += idGen.getUUID() + '\r\n';
   outVal += idGen.getUUID() + '\r\n';
+  outVal += idGen.getUUID() + '\r\n';
+  outVal += idGen.getUUID() + '\r\n';
+  outVal += idGen.getUUID() + '\r\n';
+  outVal += idGen.getUUID() + '\r\n';
+  outVal += idGen.getUUID() + '\r\n';
   outputTextarea.value = outVal;
 }
 

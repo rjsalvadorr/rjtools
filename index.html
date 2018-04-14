@@ -1,26 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>rjtools</title>
-    <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
-    <link rel="stylesheet" type="text/css" href="css/skeleton.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  </head>
-  <body>
-    <h1>rjtools</h1>
 
-    <input class="btn btn--rj" id="btnUUID" type="button" value="UUID" />
-    <input class="btn btn--rj" id="btnTimestamps" type="button" value="Timestamps" />
-    <input class="btn btn--rj" id="btnRandomWords" type="button" value="Random Words" />
-    <input class="btn btn--rj" id="btnMarkdown" type="button" value="Markdown Template" />
-    <input class="btn btn--rj" id="btnRandomProg" type="button" value="Random Chord Progression" />
-    
-    <textarea id="output"></textarea>
-    
-    <script>
-      // You can also require other files to run in this process
-      require('./app/renderer.js')
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <title>rjtools</title>
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="css/skeleton.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body>
+  <div class="container container--rj">
+    <div class="row">
+      <div class="five columns menu-column">
+        <div class="menu-column-wrapper">
+          <button class="btn btn--rj" id="btnUUID">UUIDs</button>
+          <button class="btn btn--rj" id="btnTimestamps">Timestamps</button>
+          <button class="btn btn--rj" id="btnRandomWords">Random Words</button>
+          <button class="btn btn--rj" id="btnMarkdown">Markdown Template</button>
+          <button class="btn btn--rj" id="btnRandomProg">
+            Chord Progression
+          </button>
+          <button class="btn btn--rj">-</button>
+          <button class="btn btn--rj">-</button>
+          <button class="btn btn--rj">-</button>
+          <button class="btn btn--rj">-</button>
+          <button class="btn btn--rj">-</button>
+          <button class="btn btn--rj">-</button>
+          <button class="btn btn--rj">-</button>
+          <button class="btn btn--rj">-</button>
+          <button class="btn btn--rj">-</button>
+          <button class="btn btn--rj">-</button>
+          <button class="btn btn--rj">-</button>
+        </div>
+      </div>
+      <div class="seven columns display-column">
+        <div class="display-column-wrapper">
+          <h1>rjtools</h1>
+          <textarea id="output"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./app/renderer.js')
+  </script>
+</body>
+
 </html>
