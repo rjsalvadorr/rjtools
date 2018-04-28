@@ -1,42 +1,35 @@
 body {
   background-color: #222222;
   color: #DDDDDD;
-  font-family: Arial, Helvetica, sans-serif;
-}
+  font-family: Arial, Helvetica, sans-serif; }
 
 .container--rj {
   margin-left: 0;
   margin-right: 0;
-  width: 96%;
-}
+  width: 96%; }
 
 .menu-column-wrapper {
   background-color: #333333;
   box-sizing: border-box;
   padding: 20px;
   height: 100vh;
-  overflow: auto;
-}
+  overflow: auto; }
 
 .display-column-wrapper {
-  padding-top: 20px;
-}
+  padding-top: 20px; }
 
 textarea {
   margin-top: 10px;
-  resize: none;
-}
+  resize: none; }
 
 .btn--rj {
   padding: 0 10px;
   font-size: 13px !important;
   background-color: #DDDDDD !important;
-  width: 100%;
-}
+  width: 100%; }
 
 .btn--rj:hover {
-  background-color: #FFFFFF !important;
-}
+  background-color: #FFFFFF !important; }
 
 textarea#output {
   color: #111111;
@@ -47,5 +40,4 @@ textarea#output {
   font-family: monospace;
   font-size: 14px;
   font-weight: normal;
-  margin: 0;
-}
+  margin: 0; }
