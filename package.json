@@ -5,10 +5,10 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-sass": "node-sass src/css/style.scss css/style.css",
+    "build-css": "node-sass src/css/style.scss css/style.css",
     "start-app": "electron .",
     "build-app": "electron-packager . rjtools --platform=win32,linux,darwin --out=build --overwrite --icon=img/icon.ico",
-    "build": "npm run build-sass && npm run build-app"
+    "build": "npm run build-css && npm run build-app"
   },
   "repository": {
     "type": "git",
