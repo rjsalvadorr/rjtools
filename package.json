@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-css": "node-sass src/css/style.scss css/style.css",
     "start-app": "electron .",
+    "start": "npm run build-css && electron .",
     "build-app": "electron-packager . rjtools --platform=win32,linux,darwin --out=build --overwrite --icon=img/icon.ico",
     "build": "npm run build-css && npm run build-app"
   },

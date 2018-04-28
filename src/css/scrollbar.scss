@@ -2,6 +2,7 @@
 
 /* Let's get this party started */
 ::-webkit-scrollbar {
+  margin: $scrollbar-width 0;
   width: $scrollbar-width;
 }
 
@@ -18,4 +19,18 @@
 }
 ::-webkit-scrollbar-thumb:window-inactive {
   background-color: $scrollbar-color;
+}
+
+#output {
+  &::-webkit-scrollbar-track {
+    background-color: $scrollbar-track-color--output;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-color--output;
+  }
+
+  &::-webkit-scrollbar-thumb:window-inactive {
+    background-color: $scrollbar-color--output;
+  }
 }

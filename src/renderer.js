@@ -51,8 +51,12 @@ function handleRandomProg() {
   outputTextarea.value = outVal;
 }
 
+// Register event handlers
 document.querySelector('#btnTimestamps').addEventListener('click', handleTimestamps);
 document.querySelector('#btnUUID').addEventListener('click', handleUUID);
 document.querySelector('#btnRandomWords').addEventListener('click', handleRandomWords);
 document.querySelector('#btnMarkdown').addEventListener('click', handleMarkdown);
 document.querySelector('#btnRandomProg').addEventListener('click', handleRandomProg);
+
+// Display timestamps as default
+handleTimestamps();

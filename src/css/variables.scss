@@ -1,11 +1,32 @@
-$menu-bg-color: #333333;
+
+///// Whitespace
+
+$padding-unit: 20px;
+
+
+
+///// Main Colours
+
+$menu-bg-color: #004C47;
+$menu-button-color: #EEEEEE;
+$menu-button-bg-color: $menu-bg-color;
+
+$menu-button-color--hover: lighten($menu-button-color, 25%);
+$menu-button-bg-color--hover: lighten($menu-button-bg-color, 25%);
+
 $main-bg-color: #222222;
 $main-text-color: #DDDDDD;
-$main-text-color--hover: #FFFFFF;
-$padding-unit: 20px;
+
 $output-bg-color: #EEEEEE;
 $output-text-color: #111111;
 
+
+
+///// Scrollbar
+
 $scrollbar-width: 8px;
-$scrollbar-track-color: rgba(255, 255, 255, 0.1);
+$scrollbar-track-color: rgba(255, 255, 255, 0.00);
 $scrollbar-color: rgba(255, 255, 255, 0.33);
+
+$scrollbar-track-color--output: rgba(0, 0, 0, 0.1);
+$scrollbar-color--output: rgba(0, 0, 0, 0.33);
