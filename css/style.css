@@ -1,7 +1,8 @@
 body {
   background-color: #222222;
   color: #DDDDDD;
-  font-family: Arial, Helvetica, sans-serif; }
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-app-region: drag; }
 
 .container--rj {
   margin-left: 0;
@@ -21,19 +22,24 @@ body {
 
 textarea {
   margin-top: 10px;
-  resize: none; }
+  resize: none;
+  -webkit-app-region: no-drag; }
 
 .btn--rj {
+  margin-bottom: 15px;
   padding: 0 10px;
   font-size: 13px !important;
   color: #EEEEEE !important;
   border-color: #EEEEEE !important;
-  width: 100%; }
+  width: 100%;
+  height: 48px;
+  -webkit-app-region: no-drag; }
   .btn--rj:hover {
     color: white !important;
+    background-color: #00665f;
     border-color: white !important; }
 
-textarea#output {
+textarea.output {
   color: #111111;
   background-color: #EEEEEE;
   display: block;
@@ -64,11 +70,11 @@ textarea#output {
 ::-webkit-scrollbar-thumb:window-inactive {
   background-color: rgba(255, 255, 255, 0.33); }
 
-#output::-webkit-scrollbar-track {
+.output::-webkit-scrollbar-track {
   background-color: rgba(0, 0, 0, 0.1); }
 
-#output::-webkit-scrollbar-thumb {
+.output::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.33); }
 
-#output::-webkit-scrollbar-thumb:window-inactive {
+.output::-webkit-scrollbar-thumb:window-inactive {
   background-color: rgba(0, 0, 0, 0.33); }

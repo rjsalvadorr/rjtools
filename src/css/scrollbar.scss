@@ -21,7 +21,7 @@
   background-color: $scrollbar-color;
 }
 
-#output {
+.output {
   &::-webkit-scrollbar-track {
     background-color: $scrollbar-track-color--output;
   }

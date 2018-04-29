@@ -17,8 +17,12 @@ function createWindow () {
     width: 800,
     height: 600,
     autoHideMenuBar: true,
+    frame: false,
     icon: path.join(__dirname, 'img/icon.png')
   })
+  mainWindow.setMinimizable(false)
+  mainWindow.setMaximizable(false)
+  mainWindow.setFullScreenable(false)
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({

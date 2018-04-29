@@ -9,7 +9,7 @@ var RandomWordGenerator = require('./random-word-generator');
 var MarkdownGenerator = require('./markdown-generator');
 var ProgressionGenerator = require('./progression-generator');
 
-var outputTextarea = document.querySelector('#output');
+var outputTextarea = document.querySelector('.output');
 
 function handleTimestamps() {
   var tGen = new TimestampGenerator();

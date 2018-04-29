@@ -2,7 +2,9 @@
 ///// Whitespace
 
 $padding-unit: 20px;
-
+$button-height: 48px;
+$button-margin: 15px;
+$button-padding: 10px;
 
 
 ///// Main Colours
@@ -12,7 +14,7 @@ $menu-button-color: #EEEEEE;
 $menu-button-bg-color: $menu-bg-color;
 
 $menu-button-color--hover: lighten($menu-button-color, 25%);
-$menu-button-bg-color--hover: lighten($menu-button-bg-color, 25%);
+$menu-button-bg-color--hover: lighten($menu-button-bg-color, 5%);
 
 $main-bg-color: #222222;
 $main-text-color: #DDDDDD;
