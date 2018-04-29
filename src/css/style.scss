@@ -18,7 +18,7 @@ body {
   padding: $padding-unit;
   height: 100vh;
   overflow: auto;
-  box-shadow: 2px 0 3px 3px rgba(0,0,0,0.25);
+  box-shadow: 2px 0 3px 3px rgba(0, 0, 0, 0.25);
 }
 
 .display-column-wrapper {
@@ -53,6 +53,8 @@ textarea#output {
   font-size: 14px;
   font-weight: normal;
   margin: 0;
+  box-shadow: inset 2px 2px 2px 0 rgba(0, 0, 0, 0.33);
+  border: none;
 }
 
 @import 'scrollbar';
