@@ -4,14 +4,18 @@ _{{{date}}}_
 
 LoremIpsumDolorSitAmet
 
------
+&nbsp;
+
+---
 
 ## Heading
 
-Placeholder
+LoremIpsumDolorSitAmet
 
 ### Subheading
 
-Text
+LoremIpsumDolorSitAmet
 
------
+&nbsp;
+
+---
