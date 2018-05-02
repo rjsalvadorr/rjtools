@@ -19,6 +19,7 @@
   "author": "RJ Salvador",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^2.5.9",
     "moment": "^2.21.0",
     "sentencer": "^0.1.5",
     "uuid": "^3.2.1"

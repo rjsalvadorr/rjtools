@@ -9,15 +9,41 @@ var RandomWordGenerator = require('./random-word-generator');
 var MarkdownGenerator = require('./markdown-generator');
 var ProgressionGenerator = require('./progression-generator');
 
-var outputTextarea = document.querySelector('.output');
+
+
+///// Utility functions
+
+function getOutputTextArea() {
+  return document.querySelector('.output');
+}
+
+function getOutputWrapper() {
+  return document.querySelector('#output-wrapper');
+}
+
+function switchOutputPanel(htmlContent) {
+  getOutputWrapper().innerHTML = htmlContent;
+}
+
+function resetOutputPanel() {
+  var ejsLoader = require('./ejs-loader');
+  var simpleOutputPanel = ejsLoader.getEjsContent('simple-output.ejs');
+  switchOutputPanel(simpleOutputPanel);
+}
+
+
+
+///// Event handlers
 
 function handleTimestamps() {
+  resetOutputPanel();
   var tGen = new TimestampGenerator();
   var outVal = tGen.getAllTimestamps();
-  outputTextarea.value = outVal;
+  getOutputTextArea().value = outVal;
 }
 
 function handleUUID() {
+  resetOutputPanel();
   var idGen = new UUIDGenerator();
   var outVal = idGen.getUUID() + '\r\n';
   outVal += idGen.getUUID() + '\r\n';
@@ -27,36 +53,51 @@ function handleUUID() {
   outVal += idGen.getUUID() + '\r\n';
   outVal += idGen.getUUID() + '\r\n';
   outVal += idGen.getUUID() + '\r\n';
-  outputTextarea.value = outVal;
+  getOutputTextArea().value = outVal;
 }
 
 function handleRandomWords() {
+  resetOutputPanel();
   var wordGen = new RandomWordGenerator();
   // var utils = new Utils();
   var outVal = utils.convertListToString(wordGen.getDefaultRandomWords());
-  outputTextarea.value = outVal;
+  getOutputTextArea().value = outVal;
 }
 
 function handleMarkdown() {
+  resetOutputPanel();
   var mdGen = new MarkdownGenerator();
   var tGen = new TimestampGenerator();
   var date = tGen.getLongDate();
   var outVal = mdGen.generateMarkdownTemplate(date);
-  outputTextarea.value = outVal;
+  getOutputTextArea().value = outVal;
 }
 
 function handleRandomProg() {
+  resetOutputPanel();
   var pGen = new ProgressionGenerator();
   var outVal = pGen.getRandomPracticeProg();
-  outputTextarea.value = outVal;
+  getOutputTextArea().value = outVal;
 }
 
-// Register event handlers
+function handleMarkdownPdfConversion() {
+  var ejsLoader = require('./ejs-loader');
+  var itemPickerOutputPanel = ejsLoader.getEjsContent('item-picker.ejs');
+  switchOutputPanel(itemPickerOutputPanel);
+}
+
+
+
+///// Register event handlers
+
 document.querySelector('#btnTimestamps').addEventListener('click', handleTimestamps);
 document.querySelector('#btnUUID').addEventListener('click', handleUUID);
 document.querySelector('#btnRandomWords').addEventListener('click', handleRandomWords);
 document.querySelector('#btnMarkdown').addEventListener('click', handleMarkdown);
 document.querySelector('#btnRandomProg').addEventListener('click', handleRandomProg);
+document.querySelector('#btnMarkdownPdf').addEventListener('click', handleMarkdownPdfConversion);
 
-// Display timestamps as default
+
+
+///// Display timestamps as default
 handleTimestamps();
