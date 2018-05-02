@@ -21,13 +21,38 @@ function getOutputWrapper() {
   return document.querySelector('#output-wrapper');
 }
 
+function printOutput(text) {
+  getOutputTextArea().innerHTML = text;
+}
+
+function getDirectoryPathFromExplorer() {
+  const { dialog } = require('electron').remote;
+
+  var inputDirectories = dialog.showOpenDialog({
+    properties: ['openDirectory']
+  });
+
+  return inputDirectories[0];
+}
+
+function getFilePathFromExplorer() {
+  const { dialog } = require('electron').remote;
+
+  var inputDirectories = dialog.showOpenDialog({
+    properties: ['openFile']
+  });
+
+  return inputDirectories[0];
+}
+
+
 function switchOutputPanel(htmlContent) {
   getOutputWrapper().innerHTML = htmlContent;
 }
 
 function resetOutputPanel() {
   var ejsLoader = require('./ejs-loader');
-  var simpleOutputPanel = ejsLoader.getEjsContent('simple-output.ejs');
+  var simpleOutputPanel = ejsLoader.getSimpleOutput();
   switchOutputPanel(simpleOutputPanel);
 }
 
@@ -39,7 +64,7 @@ function handleTimestamps() {
   resetOutputPanel();
   var tGen = new TimestampGenerator();
   var outVal = tGen.getAllTimestamps();
-  getOutputTextArea().value = outVal;
+  printOutput(outVal);
 }
 
 function handleUUID() {
@@ -53,7 +78,7 @@ function handleUUID() {
   outVal += idGen.getUUID() + '\r\n';
   outVal += idGen.getUUID() + '\r\n';
   outVal += idGen.getUUID() + '\r\n';
-  getOutputTextArea().value = outVal;
+  printOutput(outVal);
 }
 
 function handleRandomWords() {
@@ -61,7 +86,7 @@ function handleRandomWords() {
   var wordGen = new RandomWordGenerator();
   // var utils = new Utils();
   var outVal = utils.convertListToString(wordGen.getDefaultRandomWords());
-  getOutputTextArea().value = outVal;
+  printOutput(outVal);
 }
 
 function handleMarkdown() {
@@ -70,20 +95,31 @@ function handleMarkdown() {
   var tGen = new TimestampGenerator();
   var date = tGen.getLongDate();
   var outVal = mdGen.generateMarkdownTemplate(date);
-  getOutputTextArea().value = outVal;
+  printOutput(outVal);
 }
 
 function handleRandomProg() {
   resetOutputPanel();
   var pGen = new ProgressionGenerator();
   var outVal = pGen.getRandomPracticeProg();
-  getOutputTextArea().value = outVal;
+  printOutput(outVal);
 }
 
 function handleMarkdownPdfConversion() {
+  const outVal = 'Converting soon...';
+  printOutput(outVal);
+}
+
+function setupMarkdownPdfConversion() {
   var ejsLoader = require('./ejs-loader');
-  var itemPickerOutputPanel = ejsLoader.getEjsContent('item-picker.ejs');
+  var itemPickerOutputPanel = ejsLoader.getItemPickerOutput('markdown-filename', 'Choose markdown file', 'Convert to PDF');
   switchOutputPanel(itemPickerOutputPanel);
+
+  document.querySelector('.input-button--item-picker').addEventListener('click', function () {
+    var mdPath = getFilePathFromExplorer();
+    document.querySelector('.input--item-picker').value = mdPath;
+  });
+  document.querySelector('.input-button--submit').addEventListener('click', handleMarkdownPdfConversion);
 }
 
 
@@ -95,7 +131,7 @@ document.querySelector('#btnUUID').addEventListener('click', handleUUID);
 document.querySelector('#btnRandomWords').addEventListener('click', handleRandomWords);
 document.querySelector('#btnMarkdown').addEventListener('click', handleMarkdown);
 document.querySelector('#btnRandomProg').addEventListener('click', handleRandomProg);
-document.querySelector('#btnMarkdownPdf').addEventListener('click', handleMarkdownPdfConversion);
+document.querySelector('#btnMarkdownPdf').addEventListener('click', setupMarkdownPdfConversion);
 
 
 

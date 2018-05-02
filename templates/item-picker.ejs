@@ -1,9 +1,9 @@
 <div class="output-panel output-panel--item-picker">
-  <textarea class="output output--item-picker"></textarea>
   <div class="input-group">
-    <label class="input-group-label" for="input-1">Input Label</label>
-    <input class="input--rj" type="text" id="input-1">
+    <label class="input-group-label" for="<%= input.id %>"><%= input.label %></label>
+    <input class="input--rj input--item-picker" type="text" id="<%= input.id %>">
     <button class="input-button input-button--item-picker">Browse</button>
   </div>
-  <button class="input-button input-button--submit">Submit</button>
+  <button class="input-button input-button--submit"><%= input.submitLabel %></button>
+  <textarea class="output output--item-picker"></textarea>
 </div>
