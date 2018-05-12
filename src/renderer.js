@@ -2,6 +2,7 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
+var _ = require('lodash');
 var utils = require('./utils');
 var TimestampGenerator = require('./timestamp-generator');
 var UUIDGenerator = require('./uuid-generator');
@@ -45,6 +46,18 @@ function getFilePathFromExplorer() {
   return inputDirectories[0];
 }
 
+function getMarkdownFilePathFromExplorer() {
+  const { dialog } = require('electron').remote;
+
+  var inputDirectories = dialog.showOpenDialog({
+    properties: ['openFile'],
+    filters: [
+      {name: 'Markdown files', extensions: ['md', 'markdown']}
+    ],
+  });
+
+  return !_.isEmpty(inputDirectories) ? inputDirectories[0] : null;
+}
 
 function switchOutputPanel(htmlContent) {
   getOutputWrapper().innerHTML = htmlContent;
@@ -106,8 +119,21 @@ function handleRandomProg() {
 }
 
 function handleMarkdownPdfConversion() {
-  const outVal = 'Converting soon...';
-  printOutput(outVal);
+  var markdownpdf = require("markdown-pdf");
+  var fs = fs || require("fs");
+  var path = path || require("path");
+  
+  var inFilePath = document.querySelector('.input--item-picker').value;
+  var parsedPath = path.parse(inFilePath);
+  var outFilePath = path.format(_.merge(parsedPath, {ext: 'pdf'}));
+
+  console.log(inFilePath);
+  console.log(parsedPath);
+  console.log(outFilePath);
+
+  markdownpdf().from(inFilePath).to(outFilePath, function () {
+    printOutput('Markdown file converted to ' + outFilePath);
+  })
 }
 
 function setupMarkdownPdfConversion() {
@@ -116,9 +142,10 @@ function setupMarkdownPdfConversion() {
   switchOutputPanel(itemPickerOutputPanel);
 
   document.querySelector('.input-button--item-picker').addEventListener('click', function () {
-    var mdPath = getFilePathFromExplorer();
+    var mdPath = getMarkdownFilePathFromExplorer();
     document.querySelector('.input--item-picker').value = mdPath;
   });
+
   document.querySelector('.input-button--submit').addEventListener('click', handleMarkdownPdfConversion);
 }
 
