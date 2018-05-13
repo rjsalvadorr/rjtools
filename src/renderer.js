@@ -4,6 +4,7 @@
 
 var _ = require('lodash');
 var utils = require('./utils');
+var constants = require('./constants');
 var TimestampGenerator = require('./timestamp-generator');
 var UUIDGenerator = require('./uuid-generator');
 var RandomWordGenerator = require('./random-word-generator');
@@ -124,16 +125,26 @@ function handleMarkdownPdfConversion() {
   var path = path || require("path");
   
   var inFilePath = document.querySelector('.input--item-picker').value;
+
+  if(!inFilePath) {
+    printOutput('No file specified!');
+    return;
+  }
+
   var parsedPath = path.parse(inFilePath);
-  var outFilePath = path.format(_.merge(parsedPath, {ext: 'pdf'}));
+  _.merge(parsedPath, {ext: '.pdf', base: ''});
+  var outFilePath = path.format(parsedPath);
+  var cssPath = path.join(constants.ROOT_DIR, 'src/css');
 
-  console.log(inFilePath);
-  console.log(parsedPath);
-  console.log(outFilePath);
+  // printOutput(inFilePath + '\n' + JSON.stringify(parsedPath, null, 2) + '\n' + outFilePath);
 
-  markdownpdf().from(inFilePath).to(outFilePath, function () {
+  markdownpdf({
+    cssPath: cssPath,
+    paperFormat: 'Letter',
+    paperBorder: '0.5in',
+  }).from(inFilePath).to(outFilePath, function () {
     printOutput('Markdown file converted to ' + outFilePath);
-  })
+  });
 }
 
 function setupMarkdownPdfConversion() {
