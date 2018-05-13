@@ -1,4 +1,4 @@
-const electron = require('electron')
+const electron = require('electron');
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -7,22 +7,43 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
+// Set this flag to "true" when debugging
+const DEBUG_MODE = true;
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
+function createWindow() {
+  let browserWindowSettings = {
     width: 800,
     height: 600,
-    autoHideMenuBar: true,
-    frame: false,
     icon: path.join(__dirname, 'img/icon.png')
-  })
-  mainWindow.setMinimizable(false)
-  // mainWindow.setMaximizable(false)
-  mainWindow.setFullScreenable(false)
+  };
+
+  if (DEBUG_MODE) {
+    browserWindowSettings.frame = true;
+    browserWindowSettings.autoHideMenuBar = false;
+  } else {
+    browserWindowSettings.frame = false;
+    browserWindowSettings.autoHideMenuBar = true;
+  }
+
+  // Create the browser window.
+  mainWindow = new BrowserWindow(browserWindowSettings);
+
+  if (DEBUG_MODE) {
+    mainWindow.setMinimizable(true);
+    mainWindow.setMaximizable(true);
+    mainWindow.setFullScreenable(true);
+
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools()
+  } else {
+    mainWindow.setMinimizable(false);
+    mainWindow.setMaximizable(false);
+    mainWindow.setFullScreenable(false);
+  }
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -30,9 +51,6 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }))
-
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
