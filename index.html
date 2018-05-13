@@ -19,8 +19,7 @@
           <button class="btn btn--rj" id="btnRandomWords">Random Words</button>
           <button class="btn btn--rj" id="btnMarkdown">Markdown Template</button>
           <button class="btn btn--rj" id="btnRandomProg">Chord Progression</button>
-          <button class="btn btn--rj">-</button>
-          <button class="btn btn--rj">-</button>
+          <button class="btn btn--rj" id="btnMarkdownPdf">Convert Markdown to PDF</button>
           <button class="btn btn--rj">-</button>
           <button class="btn btn--rj">-</button>
           <button class="btn btn--rj">-</button>
@@ -35,7 +34,11 @@
       <div class="seven columns display-column">
         <div class="display-column-wrapper">
           <h1>rjtools</h1>
-          <textarea class="output"></textarea>
+          <div id="output-wrapper">
+            <div class="output-panel output-panel--simple">
+              <textarea class="output"></textarea>
+            </div>
+          </div>
         </div>
       </div>
     </div>

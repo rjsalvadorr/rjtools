@@ -20,10 +20,14 @@ body {
 .display-column-wrapper {
   padding-top: 20px; }
 
+textarea,
+input,
+button {
+  -webkit-app-region: no-drag; }
+
 textarea {
   margin-top: 10px;
-  resize: none;
-  -webkit-app-region: no-drag; }
+  resize: none; }
 
 .btn--rj {
   margin-bottom: 15px;
@@ -32,14 +36,13 @@ textarea {
   color: #EEEEEE !important;
   border-color: #EEEEEE !important;
   width: 100%;
-  height: 48px;
-  -webkit-app-region: no-drag; }
+  height: 48px; }
   .btn--rj:hover {
     color: white !important;
     background-color: #00665f;
     border-color: white !important; }
 
-textarea.output {
+.output {
   color: #111111;
   background-color: #EEEEEE;
   display: block;
@@ -51,6 +54,30 @@ textarea.output {
   margin: 0;
   box-shadow: inset 2px 2px 2px 0 rgba(0, 0, 0, 0.33);
   border: none; }
+  .output--item-picker {
+    height: 300px; }
+
+.input--rj {
+  box-sizing: border-box;
+  height: 36px;
+  border-radius: 4px;
+  color: #111111;
+  background-color: #EEEEEE;
+  font-family: monospace;
+  font-weight: normal;
+  border: none; }
+
+.input-button {
+  display: inline-block;
+  color: #DDDDDD;
+  height: 36px;
+  margin-bottom: 12px;
+  padding: 0 10px; }
+  .input-button:hover, .input-button:active, .input-button:focus {
+    color: white; }
+
+.hidden {
+  display: none; }
 
 /* Let's get this party started */
 ::-webkit-scrollbar {

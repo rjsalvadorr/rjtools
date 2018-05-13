@@ -26,10 +26,15 @@ body {
   padding-top: $padding-unit;
 }
 
+textarea,
+input,
+button {
+  -webkit-app-region: no-drag;
+}
+
 textarea {
   margin-top: 10px;
   resize: none;
-  -webkit-app-region: no-drag;
 }
 
 .btn--rj {
@@ -40,7 +45,6 @@ textarea {
   border-color: $menu-button-color !important;
   width: 100%;
   height: $button-height;
-  -webkit-app-region: no-drag;
 
   &:hover {
     color: $menu-button-color--hover !important;
@@ -49,7 +53,7 @@ textarea {
   }
 }
 
-textarea.output {
+.output {
   color: $output-text-color;
   background-color: $output-bg-color;
   display: block;
@@ -61,6 +65,41 @@ textarea.output {
   margin: 0;
   box-shadow: inset 2px 2px 2px 0 rgba(0, 0, 0, 0.33);
   border: none;
+
+  &--item-picker {
+    height: 300px;
+  }
+}
+
+// Lots of these are very similar to the textarea.
+// Throw those in a mixin?
+.input--rj {
+  box-sizing: border-box;
+  height: $input-button-height;
+  border-radius: 4px;
+  color: $output-text-color;
+  background-color: $output-bg-color;
+  font-family: monospace;
+  font-weight: normal;
+  border: none;
+}
+
+.input-button {
+  display: inline-block;
+  color: $main-text-color;
+  height: $input-button-height;
+  margin-bottom: $input-button-margin;
+  padding: 0 $input-button-padding;
+
+  &:hover,
+  &:active,
+  &:focus, {
+    color: lighten($main-text-color, 25%);
+  }
+}
+
+.hidden {
+  display: none;
 }
 
 @import 'scrollbar';

@@ -21,7 +21,7 @@ function createWindow () {
     icon: path.join(__dirname, 'img/icon.png')
   })
   mainWindow.setMinimizable(false)
-  mainWindow.setMaximizable(false)
+  // mainWindow.setMaximizable(false)
   mainWindow.setFullScreenable(false)
 
   // and load the index.html of the app.
