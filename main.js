@@ -8,7 +8,7 @@ const path = require('path')
 const url = require('url')
 
 // Set this flag to "true" when debugging
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.

@@ -145,6 +145,8 @@ try {
     }).from(inFilePath).to(outFilePath, function () {
       printOutput('Markdown file converted to ' + outFilePath);
     });
+
+    document.querySelector('.input--item-picker').value = '';
   }
 
   function setupMarkdownPdfConversion() {
