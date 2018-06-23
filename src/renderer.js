@@ -70,112 +70,163 @@ function resetOutputPanel() {
   switchOutputPanel(simpleOutputPanel);
 }
 
-try {
 
-  ///// Event handlers
 
-  function handleTimestamps() {
-    resetOutputPanel();
-    var tGen = new TimestampGenerator();
-    var outVal = tGen.getAllTimestamps();
-    printOutput(outVal);
-  }
+///// Event handlers
 
-  function handleUUID() {
-    resetOutputPanel();
-    var idGen = new UUIDGenerator();
-    var outVal = idGen.getUUID() + '\r\n';
-    outVal += idGen.getUUID() + '\r\n';
-    outVal += idGen.getUUID() + '\r\n';
-    outVal += idGen.getUUID() + '\r\n';
-    outVal += idGen.getUUID() + '\r\n';
-    outVal += idGen.getUUID() + '\r\n';
-    outVal += idGen.getUUID() + '\r\n';
-    outVal += idGen.getUUID() + '\r\n';
-    printOutput(outVal);
-  }
-
-  function handleRandomWords() {
-    resetOutputPanel();
-    var wordGen = new RandomWordGenerator();
-    // var utils = new Utils();
-    var outVal = utils.convertListToString(wordGen.getDefaultRandomWords());
-    printOutput(outVal);
-  }
-
-  function handleMarkdown() {
-    resetOutputPanel();
-    var mdGen = new MarkdownGenerator();
-    var tGen = new TimestampGenerator();
-    var date = tGen.getLongDate();
-    var outVal = mdGen.generateMarkdownTemplate(date);
-    printOutput(outVal);
-  }
-
-  function handleRandomProg() {
-    resetOutputPanel();
-    var pGen = new ProgressionGenerator();
-    var outVal = pGen.getRandomPracticeProg();
-    printOutput(outVal);
-  }
-
-  function handleMarkdownPdfConversion() {
-    var markdownpdf = require("markdown-pdf");
-    var fs = fs || require("fs");
-    var path = path || require("path");
-
-    var inFilePath = document.querySelector('.input--item-picker').value;
-
-    if (!inFilePath) {
-      printOutput('No file specified!');
-      return;
+function handleTimestamps() {
+  return new Promise((resolve, reject) => {
+    try {
+      resetOutputPanel();
+      var tGen = new TimestampGenerator();
+      var outVal = tGen.getAllTimestamps();
+      resolve(outVal);
+    } catch(error) {
+      reject(error);
     }
-
-    var parsedPath = path.parse(inFilePath);
-    _.merge(parsedPath, { ext: '.pdf', base: '' });
-    var outFilePath = path.format(parsedPath);
-    var cssPath = path.join(constants.ROOT_DIR, 'src/css');
-
-    // printOutput(inFilePath + '\n' + JSON.stringify(parsedPath, null, 2) + '\n' + outFilePath);
-
-    markdownpdf({
-      cssPath: cssPath,
-      paperFormat: 'Letter',
-      paperBorder: '0.5in',
-    }).from(inFilePath).to(outFilePath, function () {
-      printOutput('Markdown file converted to ' + outFilePath);
-    });
-
-    document.querySelector('.input--item-picker').value = '';
-  }
-
-  function setupMarkdownPdfConversion() {
-    var ejsLoader = require('./ejs-loader');
-    var itemPickerOutputPanel = ejsLoader.getItemPickerOutput('markdown-filename', 'Choose markdown file', 'Convert to PDF');
-    switchOutputPanel(itemPickerOutputPanel);
-
-    document.querySelector('.input-button--item-picker').addEventListener('click', function () {
-      var mdPath = getMarkdownFilePathFromExplorer();
-      document.querySelector('.input--item-picker').value = mdPath;
-    });
-
-    document.querySelector('.input-button--submit').addEventListener('click', handleMarkdownPdfConversion);
-  }
-} catch(error) {
-  console.error(error);
-  printOutput(error);
+  });
 }
+
+function handleUUID() {
+  return new Promise((resolve, reject) => {
+    try {
+      resetOutputPanel();
+      var idGen = new UUIDGenerator();
+      var outVal = idGen.getUUID() + '\r\n';
+      outVal += idGen.getUUID() + '\r\n';
+      outVal += idGen.getUUID() + '\r\n';
+      outVal += idGen.getUUID() + '\r\n';
+      outVal += idGen.getUUID() + '\r\n';
+      outVal += idGen.getUUID() + '\r\n';
+      outVal += idGen.getUUID() + '\r\n';
+      outVal += idGen.getUUID() + '\r\n';
+      resolve(outVal);
+    } catch(error) {
+      reject(error);
+    }
+  });
+}
+
+function handleRandomWords() {
+  return new Promise((resolve, reject) => {
+    try {
+      resetOutputPanel();
+      var wordGen = new RandomWordGenerator();
+      var outVal = utils.convertListToString(wordGen.getDefaultRandomWords());
+      resolve(outVal);
+    } catch(error) {
+      reject(error);
+    }
+  });
+}
+
+function handleMarkdown() {
+  return new Promise((resolve, reject) => {
+    try {
+      resetOutputPanel();
+      var mdGen = new MarkdownGenerator();
+      var tGen = new TimestampGenerator();
+      var date = tGen.getLongDate();
+      var outVal = mdGen.generateMarkdownTemplate(date);
+      resolve(outVal);
+    } catch(error) {
+      reject(error);
+    }
+  });
+}
+
+function handleRandomProg() {
+  return new Promise((resolve, reject) => {
+    try {
+      resetOutputPanel();
+      var pGen = new ProgressionGenerator();
+      var outVal = pGen.getRandomPracticeProg();
+      resolve(outVal);
+    } catch(error) {
+      reject(error);
+    }
+  });
+}
+
+function handleMarkdownPdfConversion() {
+  var markdownpdf = require("markdown-pdf");
+  var fs = fs || require("fs");
+  var path = path || require("path");
+
+  var inFilePath = document.querySelector('.input--item-picker').value;
+
+  if (!inFilePath) {
+    printOutput('No file specified!');
+    return;
+  }
+
+  var parsedPath = path.parse(inFilePath);
+  _.merge(parsedPath, { ext: '.pdf', base: '' });
+  var outFilePath = path.format(parsedPath);
+  var cssPath = path.join(constants.ROOT_DIR, 'src/css');
+
+  // printOutput(inFilePath + '\n' + JSON.stringify(parsedPath, null, 2) + '\n' + outFilePath);
+
+  markdownpdf({
+    cssPath: cssPath,
+    paperFormat: 'Letter',
+    paperBorder: '0.5in',
+  }).from(inFilePath).to(outFilePath, function () {
+    printOutput('Markdown file converted to ' + outFilePath);
+  });
+
+  document.querySelector('.input--item-picker').value = '';
+}
+
+function setupMarkdownPdfConversion() {
+  var ejsLoader = require('./ejs-loader');
+  var itemPickerOutputPanel = ejsLoader.getItemPickerOutput('markdown-filename', 'Choose markdown file', 'Convert to PDF');
+  switchOutputPanel(itemPickerOutputPanel);
+
+  document.querySelector('.input-button--item-picker').addEventListener('click', function () {
+    var mdPath = getMarkdownFilePathFromExplorer();
+    document.querySelector('.input--item-picker').value = mdPath;
+  });
+
+  document.querySelector('.input-button--submit').addEventListener('click', handleMarkdownPdfConversion);
+}
+
+function triggerError() {
+  return new Promise((resolve, reject) => {
+    try {
+      throw "Test error triggered!";
+      resolve(outVal);
+    } catch(error) {
+      reject(error);
+    }
+  });
+}
+
+
 
 ///// Register event handlers
 
-document.querySelector('#btnTimestamps').addEventListener('click', handleTimestamps);
-document.querySelector('#btnUUID').addEventListener('click', handleUUID);
-document.querySelector('#btnRandomWords').addEventListener('click', handleRandomWords);
-document.querySelector('#btnMarkdown').addEventListener('click', handleMarkdown);
-document.querySelector('#btnRandomProg').addEventListener('click', handleRandomProg);
+document.querySelector('#btnTimestamps').addEventListener('click', ()=> {
+  handleTimestamps().then(printOutput, printOutput);
+});
+document.querySelector('#btnUUID').addEventListener('click', () => {
+  handleUUID().then(printOutput, printOutput);
+});
+document.querySelector('#btnRandomWords').addEventListener('click', () => {
+  handleRandomWords().then(printOutput, printOutput);
+});
+document.querySelector('#btnMarkdown').addEventListener('click', () => {
+  handleMarkdown().then(printOutput, printOutput);
+});
+document.querySelector('#btnRandomProg').addEventListener('click', () => {
+  handleRandomProg().then(printOutput, printOutput);
+});
 document.querySelector('#btnMarkdownPdf').addEventListener('click', setupMarkdownPdfConversion);
+document.querySelector('#btnErrorTest').addEventListener('click', ()=> {
+  triggerError().then(printOutput, printOutput);
+});
 
 
 
 ///// Display timestamps as default
-handleTimestamps();
+handleTimestamps().then(printOutput, printOutput);
