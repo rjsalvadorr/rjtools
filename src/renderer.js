@@ -149,33 +149,39 @@ function handleRandomProg() {
 }
 
 function handleMarkdownPdfConversion() {
-  var markdownpdf = require("markdown-pdf");
-  var fs = fs || require("fs");
-  var path = path || require("path");
+  return new Promise((resolve, reject) => {
+    try {
+      printOutput('Beginning markdown conversion...');
+      
+      var markdownpdf = require("markdown-pdf");
+      var fs = fs || require("fs");
+      var path = path || require("path");
 
-  var inFilePath = document.querySelector('.input--item-picker').value;
+      var inFilePath = document.querySelector('.input--item-picker').value;
 
-  if (!inFilePath) {
-    printOutput('No file specified!');
-    return;
-  }
+      if (!inFilePath) {
+        throw 'ERROR: No file specified!';
+        return;
+      }
 
-  var parsedPath = path.parse(inFilePath);
-  _.merge(parsedPath, { ext: '.pdf', base: '' });
-  var outFilePath = path.format(parsedPath);
-  var cssPath = path.join(constants.ROOT_DIR, 'src/css');
+      var parsedPath = path.parse(inFilePath);
+      _.merge(parsedPath, { ext: '.pdf', base: '' });
+      var outFilePath = path.format(parsedPath);
+      var cssPath = path.join(constants.ROOT_DIR, 'src/css');
 
-  // printOutput(inFilePath + '\n' + JSON.stringify(parsedPath, null, 2) + '\n' + outFilePath);
+      markdownpdf({
+        cssPath: cssPath,
+        paperFormat: 'Letter',
+        paperBorder: '0.5in',
+      }).from(inFilePath).to(outFilePath, function () {
+        resolve('Markdown file converted to ' + outFilePath);
+      });
 
-  markdownpdf({
-    cssPath: cssPath,
-    paperFormat: 'Letter',
-    paperBorder: '0.5in',
-  }).from(inFilePath).to(outFilePath, function () {
-    printOutput('Markdown file converted to ' + outFilePath);
+      document.querySelector('.input--item-picker').value = '';
+    } catch(error) {
+      reject(error);
+    }
   });
-
-  document.querySelector('.input--item-picker').value = '';
 }
 
 function setupMarkdownPdfConversion() {
@@ -188,7 +194,9 @@ function setupMarkdownPdfConversion() {
     document.querySelector('.input--item-picker').value = mdPath;
   });
 
-  document.querySelector('.input-button--submit').addEventListener('click', handleMarkdownPdfConversion);
+  document.querySelector('.input-button--submit').addEventListener('click', () => {
+    handleMarkdownPdfConversion().then(printOutput, printOutput);
+  });
 }
 
 function triggerError() {
