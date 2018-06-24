@@ -167,7 +167,6 @@ function handleMarkdownPdfConversion() {
       printOutput('Beginning markdown conversion...');
       
       var markdownpdf = require("markdown-pdf");
-      var fs = fs || require("fs");
       var path = path || require("path");
 
       var inFilePath = document.querySelector('.input--item-picker').value;
@@ -215,7 +214,20 @@ function setupMarkdownPdfConversion() {
 function handleDictionarySort() {
   return new Promise((resolve, reject) => {
     try {
-      var outVal = 'Converting dictionary entries...';
+      printOutput('Converting dictionary entries...');
+      var fs = fs || require("fs");
+      var path = path || require("path");
+      const dictSorter = require('./dictionary-sorter');
+
+      var inFilePath = document.querySelector('.input--item-picker').value;
+
+      if (!inFilePath) {
+        throw 'ERROR: No file specified!';
+        return;
+      }
+
+      // Convert stuff...
+      const outVal = dictSorter.getSortedDict(inFilePath);
       resolve(outVal);
     } catch(error) {
       reject(error);
