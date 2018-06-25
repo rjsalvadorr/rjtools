@@ -227,7 +227,7 @@ function handleDictionarySort() {
       }
 
       // Convert stuff...
-      const outVal = dictSorter.getSortedDict(inFilePath);
+      const outVal = JSON.stringify(dictSorter.getSortedDict(inFilePath), null, 2);
       resolve(outVal);
     } catch(error) {
       reject(error);
