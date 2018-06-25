@@ -82,7 +82,17 @@ class DictionarySorter {
   getSortedDictAsMarkdown(filePath) {
     // Write as markdown text, with each category being sorted into its own thing.
     const sortedDict = this.getSortedDict(filePath);
-    return 'TODO - implement function';
+    let outputText = '# Things\n';
+    let entries;
+    
+    for (var entryType in sortedDict) {
+      outputText += `\n## ${entryType}\n\n`;
+      entries = sortedDict[entryType];
+      for (var i = 0, len = entries.length; i < len; i++) {
+        outputText += `${entries[i]}\n`;
+      }
+    }
+    return outputText;
   }
 }
 
