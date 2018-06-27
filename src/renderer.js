@@ -60,6 +60,19 @@ function getMarkdownFilePathFromExplorer() {
   return !_.isEmpty(inputDirectories) ? inputDirectories[0] : null;
 }
 
+function getDictEntryFilePathFromExplorer() {
+  const { dialog } = require('electron').remote;
+
+  var inputDirectories = dialog.showOpenDialog({
+    properties: ['openFile'],
+    filters: [
+      { name: 'Dictionary entries (txt)', extensions: ['txt'] }
+    ],
+  });
+
+  return !_.isEmpty(inputDirectories) ? inputDirectories[0] : null;
+}
+
 function switchOutputPanel(htmlContent) {
   getOutputWrapper().innerHTML = htmlContent;
 }
@@ -154,7 +167,6 @@ function handleMarkdownPdfConversion() {
       printOutput('Beginning markdown conversion...');
       
       var markdownpdf = require("markdown-pdf");
-      var fs = fs || require("fs");
       var path = path || require("path");
 
       var inFilePath = document.querySelector('.input--item-picker').value;
@@ -199,6 +211,45 @@ function setupMarkdownPdfConversion() {
   });
 }
 
+function handleDictionarySort() {
+  return new Promise((resolve, reject) => {
+    try {
+      printOutput('Converting dictionary entries...');
+      var fs = fs || require("fs");
+      var path = path || require("path");
+      const dictSorter = require('./dictionary-sorter');
+
+      var inFilePath = document.querySelector('.input--item-picker').value;
+
+      if (!inFilePath) {
+        throw 'ERROR: No file specified!';
+        return;
+      }
+
+      // Convert stuff...
+      const outVal = dictSorter.getSortedDictAsMarkdown(inFilePath);
+      resolve(outVal);
+    } catch(error) {
+      reject(error);
+    }
+  });
+}
+
+function setupDictionarySort() {
+  var ejsLoader = require('./ejs-loader');
+  var itemPickerOutputPanel = ejsLoader.getItemPickerOutput('dict-entries-filename', 'Choose dictionary entry file', 'Sort dictionary entries');
+  switchOutputPanel(itemPickerOutputPanel);
+
+  document.querySelector('.input-button--item-picker').addEventListener('click', function () {
+    var mdPath = getDictEntryFilePathFromExplorer();
+    document.querySelector('.input--item-picker').value = mdPath;
+  });
+
+  document.querySelector('.input-button--submit').addEventListener('click', () => {
+    handleDictionarySort().then(printOutput, printOutput);
+  });
+}
+
 function triggerError() {
   return new Promise((resolve, reject) => {
     try {
@@ -230,6 +281,7 @@ document.querySelector('#btnRandomProg').addEventListener('click', () => {
   handleRandomProg().then(printOutput, printOutput);
 });
 document.querySelector('#btnMarkdownPdf').addEventListener('click', setupMarkdownPdfConversion);
+document.querySelector('#btnDictionarySorter').addEventListener('click', setupDictionarySort);
 document.querySelector('#btnErrorTest').addEventListener('click', ()=> {
   triggerError().then(printOutput, printOutput);
 });
