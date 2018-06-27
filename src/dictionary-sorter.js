@@ -2,6 +2,7 @@
 var utils = require('./utils');
 var constants = require('./constants');
 var ejs = require('ejs');
+var _str = require('lodash/string');
 
 class DictionarySorter {
   constructor() {
@@ -86,7 +87,7 @@ class DictionarySorter {
     let entries;
     
     for (var entryType in sortedDict) {
-      outputText += `\n## ${entryType}\n\n`;
+      outputText += `\n## ${_str.capitalize(entryType)}\n\n`;
       entries = sortedDict[entryType];
       for (var i = 0, len = entries.length; i < len; i++) {
         outputText += `${entries[i]}\n`;
