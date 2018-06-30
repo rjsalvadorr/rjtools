@@ -230,15 +230,15 @@ function handleMarkdownEpubConversion() {
       var outFilePath = path.format(parsedPath);
 
       var metadata = {
-        title: 'TEST TITLE',
-        author: 'TEST AUTHOR',
+        title: utils.getMarkdownTitle(inFilePath),
+        author: 'RJ Salvador',
       }
       var metadataFlags = ['-M', `title=\"${metadata.title}\"`, '-M', `author=\"${metadata.author}\"`];
       var pandocFlags = ['-o', outFilePath, inFilePath, '--toc', '--toc-depth=2'];
       var allPandocFlags = _.concat(pandocFlags, metadataFlags);
 
       const { spawn } = require('child_process');
-      const pandoc = spawn('adjklfvjnslgbjhnscjkgb', allPandocFlags);
+      const pandoc = spawn('pandoc', allPandocFlags);
 
       pandoc.stdout.on('data', data => {
         resolve(`data: ${data}`);
