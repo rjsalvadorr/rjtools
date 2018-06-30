@@ -164,7 +164,7 @@ function handleRandomProg() {
 function handleMarkdownPdfConversion() {
   return new Promise((resolve, reject) => {
     try {
-      printOutput('Beginning markdown conversion...');
+      printOutput('Beginning markdown conversion to PDF...');
       
       var markdownpdf = require("markdown-pdf");
       var path = path || require("path");
@@ -208,6 +208,78 @@ function setupMarkdownPdfConversion() {
 
   document.querySelector('.input-button--submit').addEventListener('click', () => {
     handleMarkdownPdfConversion().then(printOutput, printOutput);
+  });
+}
+
+function handleMarkdownEpubConversion() {
+  return new Promise((resolve, reject) => {
+    try {
+      printOutput('Beginning markdown conversion to EPUB...');
+      
+      var path = path || require("path");
+
+      var inFilePath = document.querySelector('.input--item-picker').value;
+
+      if (!inFilePath) {
+        throw 'ERROR: No file specified!';
+        return;
+      }
+
+      var parsedPath = path.parse(inFilePath);
+      _.merge(parsedPath, { ext: '.epub', base: '' });
+      var outFilePath = path.format(parsedPath);
+
+      var metadata = {
+        title: 'TEST TITLE',
+        author: 'TEST AUTHOR',
+      }
+      var metadataFlags = ['-M', `title=\"${metadata.title}\"`, '-M', `author=\"${metadata.author}\"`];
+      var pandocFlags = ['-o', outFilePath, inFilePath, '--toc', '--toc-depth=2'];
+      var allPandocFlags = _.concat(pandocFlags, metadataFlags);
+
+      const { spawn } = require('child_process');
+      const pandoc = spawn('adjklfvjnslgbjhnscjkgb', allPandocFlags);
+
+      pandoc.stdout.on('data', data => {
+        resolve(`data: ${data}`);
+      });
+
+      pandoc.stderr.on('data', data => {
+        reject(`stderr: ${data}`);
+      });
+
+      pandoc.on('error', err => {
+        const errorMessage = err + '\nYou may have to install Pandoc, if it\'s not in your system.';
+        reject(errorMessage);
+      });
+
+      pandoc.on('close', code => {
+        if(code != 0) {
+          reject(`child process exited with code ${code}`);
+        } else {
+          resolve(`Markdown file converted to \"${outFilePath}\"`);
+        }
+      });
+
+      document.querySelector('.input--item-picker').value = '';
+    } catch(error) {
+      reject(error);
+    }
+  });
+}
+
+function setupMarkdownEpubConversion() {
+  var ejsLoader = require('./ejs-loader');
+  var itemPickerOutputPanel = ejsLoader.getItemPickerOutput('markdown-filename', 'Choose markdown file', 'Convert to EPUB');
+  switchOutputPanel(itemPickerOutputPanel);
+
+  document.querySelector('.input-button--item-picker').addEventListener('click', function () {
+    var mdPath = getMarkdownFilePathFromExplorer();
+    document.querySelector('.input--item-picker').value = mdPath;
+  });
+
+  document.querySelector('.input-button--submit').addEventListener('click', () => {
+    handleMarkdownEpubConversion().then(printOutput, printOutput);
   });
 }
 
@@ -281,6 +353,7 @@ document.querySelector('#btnRandomProg').addEventListener('click', () => {
   handleRandomProg().then(printOutput, printOutput);
 });
 document.querySelector('#btnMarkdownPdf').addEventListener('click', setupMarkdownPdfConversion);
+document.querySelector('#btnMarkdownEpub').addEventListener('click', setupMarkdownEpubConversion);
 document.querySelector('#btnDictionarySorter').addEventListener('click', setupDictionarySort);
 document.querySelector('#btnErrorTest').addEventListener('click', ()=> {
   triggerError().then(printOutput, printOutput);
