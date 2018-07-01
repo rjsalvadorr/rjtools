@@ -74,9 +74,9 @@ class DictionarySorter {
       }
 
       lineData = {
-        word: lineDataRaw[0],
-        typeAbbrev: lineDataRaw[1],
-        definition: lineDataRaw[2]
+        word: lineDataRaw[0].trim(),
+        typeAbbrev: lineDataRaw[1].trim(),
+        definition: lineDataRaw[2].trim()
       }
 
       currentWordType = this.determineWordType(lineData.typeAbbrev);
@@ -85,7 +85,7 @@ class DictionarySorter {
       }
 
       if (typesThatKeepAbbrev.includes(currentWordType)) {
-        modifiedLine = currentLine;
+        modifiedLine = `${lineData.word} -- ${lineData.typeAbbrev} -- ${lineData.definition}`;
       } else {
         modifiedLine = `${lineData.word} -- ${lineData.definition}`;
       }
