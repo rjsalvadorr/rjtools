@@ -32,10 +32,36 @@ class DictionarySorter {
     return 'misc';
   }
 
+  compareNounsWithoutArticle(firstEntry, secondEntry) {
+    // Sorts without using "el" or "la" (in Spanish).
+    // Should also work for similar languages.
+    var firstEntryArray = firstEntry.split(' -- ');
+    var secondEntryArray = secondEntry.split(' -- ');
+    var firstPairArray = firstEntryArray[0].split(/[ ]+/);
+    var secondPairArray = secondEntryArray[0].split(/[ ]+/);
+    let firstNoun, secondNoun;
+
+    if (firstPairArray.length === 1) {
+      firstNoun = firstPairArray[0];
+    } else if (firstPairArray.length === 2) {
+      firstNoun = firstPairArray[1];
+    }
+    
+    if (secondPairArray.length === 1) {
+      secondNoun = secondPairArray[0];
+    } else if (secondPairArray.length === 2) {
+      secondNoun = secondPairArray[1];
+    }
+
+    const funcLocale = 'es'; // Spanish is our default!
+    return firstNoun.localeCompare(secondNoun, funcLocale);
+  }
+
   sortRawEntries(rawLines) {
     // returns a dict of all entries, sorted by type (see constructor)
     const sortedEntries = {};
-    let currentLine, lineDataRaw, lineData, currentWordType;
+    const typesThatKeepAbbrev = ['nouns', 'verbs'];
+    let currentLine, lineDataRaw, lineData, currentWordType, modifiedLine;
 
     for (var i = 0, len = rawLines.length; i < len; i++) {
       currentLine = rawLines[i];
@@ -57,12 +83,22 @@ class DictionarySorter {
       if(!sortedEntries[currentWordType]) {
         sortedEntries[currentWordType] = [];
       }
-      sortedEntries[currentWordType].push(currentLine);
+
+      if (typesThatKeepAbbrev.includes(currentWordType)) {
+        modifiedLine = currentLine;
+      } else {
+        modifiedLine = `${lineData.word} -- ${lineData.definition}`;
+      }
+      sortedEntries[currentWordType].push(modifiedLine);
     }
 
     // Sort each category alphabetically
     for (var entryType in sortedEntries) {
-      sortedEntries[entryType].sort();
+      if(entryType === 'nouns') {
+        sortedEntries[entryType].sort(this.compareNounsWithoutArticle);
+      } else {
+        sortedEntries[entryType].sort();
+      }
     }
 
     return sortedEntries;
@@ -88,7 +124,7 @@ class DictionarySorter {
       outputText += `\n## ${_str.capitalize(entryType)}\n\n`;
       entries = sortedDict[entryType];
       for (var i = 0, len = entries.length; i < len; i++) {
-        outputText += `${entries[i]}\n`;
+        outputText += `${entries[i]}\n\n`;
       }
     }
     return outputText;
