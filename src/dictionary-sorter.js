@@ -114,17 +114,30 @@ class DictionarySorter {
     return this.sortRawEntries(rawLines);
   }
 
+  formatDictionaryEntry(rawString) {
+    const lineData = rawString.split(' -- ');
+    if(lineData.length == 2) {
+      return `**${lineData[0]}**: ${lineData[1]}`;
+    }
+    else if(lineData.length == 3) {
+      return `**${lineData[0]}**: _${lineData[1].toLowerCase()}_ - ${lineData[2]}`;
+    }
+    throw new Error('Invalid string value!');
+  }
+
   getSortedDictAsMarkdown(filePath) {
     // Write as markdown text, with each category being sorted into its own thing.
     const sortedDict = this.getSortedDict(filePath);
     let outputText = '# Palabras Castellanos (sorted)\n\nMy spanish vocabulary.\n\n---\n';
-    let entries;
+    let entries, rawEntry, entry;
     
     for (var entryType in sortedDict) {
       outputText += `\n## ${_str.capitalize(entryType)}\n\n`;
       entries = sortedDict[entryType];
       for (var i = 0, len = entries.length; i < len; i++) {
-        outputText += `${entries[i]}\n\n`;
+        rawEntry = entries[i];
+        entry = this.formatDictionaryEntry(rawEntry);
+        outputText += `${entry}  \n`;
       }
     }
     return outputText;
