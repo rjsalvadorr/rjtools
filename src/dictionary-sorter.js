@@ -36,14 +36,15 @@ class DictionarySorter {
     // returns a dict of all entries, sorted by type (see constructor)
     const sortedEntries = {};
     let currentLine, lineDataRaw, lineData, currentWordType;
+
     for (var i = 0, len = rawLines.length; i < len; i++) {
       currentLine = rawLines[i];
       lineDataRaw = currentLine.split(' -- ');
 
-      if(lineDataRaw.length != 3) {
+      if(lineDataRaw.length <= 0 || lineDataRaw.length != 3 || lineDataRaw[0].startsWith('//')) {
         // Line is not formatted properly if this is the case.
         // Skip it!
-        break;
+        continue;
       }
 
       lineData = {
@@ -72,10 +73,7 @@ class DictionarySorter {
     
     // Read each entry
     const rawLines = rawContent.split(/\r?\n/);
-    
-    console.log('filePath', filePath);
-    console.log('rawContent', rawContent);
-    console.log('rawLines', rawLines);
+
     // Sort each entry by word type
     return this.sortRawEntries(rawLines);
   }
@@ -83,7 +81,7 @@ class DictionarySorter {
   getSortedDictAsMarkdown(filePath) {
     // Write as markdown text, with each category being sorted into its own thing.
     const sortedDict = this.getSortedDict(filePath);
-    let outputText = '# Things\n';
+    let outputText = '# Palabras Castellanos (sorted)\n\nMy spanish vocabulary.\n\n---\n';
     let entries;
     
     for (var entryType in sortedDict) {
