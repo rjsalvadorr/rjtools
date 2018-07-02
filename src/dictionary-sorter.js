@@ -128,16 +128,16 @@ class DictionarySorter {
   getSortedDictAsMarkdown(filePath) {
     // Write as markdown text, with each category being sorted into its own thing.
     const sortedDict = this.getSortedDict(filePath);
-    let outputText = '# Palabras Castellanos (sorted)\n\nMy spanish vocabulary.\n\n---\n';
+    let outputText = '# Vocabulario\n\nMi vocabulario castellano.\n';
     let entries, rawEntry, entry;
     
     for (var entryType in sortedDict) {
-      outputText += `\n## ${_str.capitalize(entryType)}\n\n`;
+      outputText += `\n---\n\n## ${entryType.toUpperCase()}\n\n`;
       entries = sortedDict[entryType];
       for (var i = 0, len = entries.length; i < len; i++) {
         rawEntry = entries[i];
         entry = this.formatDictionaryEntry(rawEntry);
-        outputText += `${entry}  \n`;
+        outputText += `${entry}   \n`;
       }
     }
     return outputText;
