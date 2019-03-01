@@ -1,0 +1,118 @@
+
+//////////////////////
+// PRINT STATEMENTS
+
+const msg = `>>>> var1 = ${JSON.stringify(var1, null, 2)}`);
+msg += `\n>>>> var2 = ${JSON.stringify(var2, null, 2)}`);
+msg += `\n>>>> var3 = ${JSON.stringify(var3, null, 2)}`);
+console.log(msg);
+
+var msg = '>>>> var1 = ' +  JSON.stringify(var1, null, 2);
+msg += '\n>>>> var2 = ' +  JSON.stringify(var2, null, 2);
+msg += '\n>>>> var3 = ' +  JSON.stringify(var3, null, 2);
+console.log(msg);
+
+
+
+////////////////////
+// ERROR HANDLING
+
+throw new Error('Whoops!');
+
+try {
+  // fishy code
+} catch (e) {
+  console.log(e.name + ': ' + e.message);
+} finally {
+  // another thing
+}
+
+
+
+///////////
+// LOOPS
+
+for(let i = 0; i < someLength; i++) {
+  // stuff
+}
+
+for(let j = 0; j < someLength; j++) {
+  // stuff
+}
+
+for(let i = 0; i < someLength; i++) {
+  for(let j = 0; j < someLength; j++) {
+    // stuff
+  }
+}
+
+for(let item of items) {
+  // stuff
+}
+
+
+
+/////////////////
+// NULL CHECKS
+
+if(!somethingNully) {
+  // do a thing
+}
+
+if(typeof somethingNully === 'undefined') {
+  // do a thing
+}
+
+if(somethingNully == null) {
+  // do a thing
+}
+
+if(somethingNully == null || typeof somethingNully === 'undefined') {
+  // do a thing
+}
+
+
+
+/////////
+// OOP
+
+class ExampleClass {
+  constructor(param1, param2) {
+    this.param1 = param1;
+    this.param2 = param2;
+  }
+
+  static exampleMethod() {
+    return 0;
+  }
+
+  anotherExampleMethod() {
+    return 0;
+  }
+}
+
+
+
+/////////////////////
+// JEST TEST CASES
+
+beforeEach(() => {
+  // set up tests
+});
+
+beforeEach(() => {
+  // break down tests
+});
+
+describe('testDescription', () => {
+  test('does something', () => {
+    const input = 2;
+    const expected = 3543521
+    expect(someFunction(input)).toBe(expected)
+  })
+  test('does something else', () => {
+    const input = 1.599;
+    const expected = 5789192
+    expect(someFunction(input)).toBe(expected)
+  })
+})

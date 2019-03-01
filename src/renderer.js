@@ -10,6 +10,7 @@ var UUIDGenerator = require('./uuid-generator');
 var RandomWordGenerator = require('./random-word-generator');
 var MarkdownGenerator = require('./markdown-generator');
 var ProgressionGenerator = require('./progression-generator');
+var JsSnippets = require('./js-snippets');
 
 
 
@@ -307,6 +308,17 @@ function handleDictionarySort() {
   });
 }
 
+function handleJsSnippets() {
+  return new Promise((resolve, reject) => {
+    try {
+      const outVal = JsSnippets.getJsSnippets();
+      resolve(outVal);
+    } catch(error) {
+      reject(error);
+    }
+  });
+}
+
 function setupDictionarySort() {
   var ejsLoader = require('./ejs-loader');
   var itemPickerOutputPanel = ejsLoader.getItemPickerOutput('dict-entries-filename', 'Choose dictionary entry file', 'Sort dictionary entries');
@@ -351,6 +363,9 @@ document.querySelector('#btnMarkdown').addEventListener('click', () => {
 });
 document.querySelector('#btnRandomProg').addEventListener('click', () => {
   handleRandomProg().then(printOutput, printOutput);
+});
+document.querySelector('#btnJsSnippets').addEventListener('click', () => {
+  handleJsSnippets().then(printOutput, printOutput);
 });
 document.querySelector('#btnMarkdownPdf').addEventListener('click', setupMarkdownPdfConversion);
 document.querySelector('#btnMarkdownEpub').addEventListener('click', setupMarkdownEpubConversion);

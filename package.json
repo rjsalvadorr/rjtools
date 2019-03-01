@@ -1,5 +1,5 @@
 {
-  "name": "rjnode",
+  "name": "rjtools",
   "version": "0.1.0",
   "description": "Homemade node tools and scripts",
   "main": "main.js",
