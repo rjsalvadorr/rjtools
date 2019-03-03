@@ -2,14 +2,12 @@
 //////////////////////
 // PRINT STATEMENTS
 
-const msg = `>>>> var1 = ${JSON.stringify(var1, null, 2)}`);
-msg += `\n>>>> var2 = ${JSON.stringify(var2, null, 2)}`);
-msg += `\n>>>> var3 = ${JSON.stringify(var3, null, 2)}`);
+const msg = `var1 = ${JSON.stringify(var1, null, 2)}`;
+msg += `\nvar2 = ${JSON.stringify(var2, null, 2)}`;
 console.log(msg);
 
-var msg = '>>>> var1 = ' +  JSON.stringify(var1, null, 2);
-msg += '\n>>>> var2 = ' +  JSON.stringify(var2, null, 2);
-msg += '\n>>>> var3 = ' +  JSON.stringify(var3, null, 2);
+var msg = 'var1 = ' +  JSON.stringify(var1, null, 2);
+msg += '\nvar2 = ' +  JSON.stringify(var2, null, 2);
 console.log(msg);
 
 
@@ -107,12 +105,12 @@ beforeEach(() => {
 describe('testDescription', () => {
   test('does something', () => {
     const input = 2;
-    const expected = 3543521
-    expect(someFunction(input)).toBe(expected)
+    const expected = 3543521;
+    expect(someFunction(input)).toBe(expected);
   })
   test('does something else', () => {
     const input = 1.599;
-    const expected = 5789192
-    expect(someFunction(input)).toBe(expected)
+    const expected = 5789192;
+    expect(someFunction(input)).toBe(expected);
   })
 })
