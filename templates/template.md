@@ -4,9 +4,9 @@ _{{{date}}}_
 
 LoremIpsumDolorSitAmet
 
-&nbsp;
-
 ---
+
+&nbsp;
 
 ## Heading
 
@@ -18,4 +18,12 @@ LoremIpsumDolorSitAmet
 
 &nbsp;
 
----
+## Heading
+
+LoremIpsumDolorSitAmet
+
+### Subheading
+
+LoremIpsumDolorSitAmet
+
+&nbsp;
