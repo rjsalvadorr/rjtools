@@ -6,6 +6,10 @@ A set of homemade tools/scripts for random computer chores.
 
 A Python script for quickly and easily converting markdown documents to PDF, using `pandoc` and `wkhtmltopdf`.
 
-## rjgit
+## git-scripts
 
 Bash scripts for an easier git experience.
+
+## ide-settings
+
+Settings for IDEs and other tools (vscode, atom, etc)

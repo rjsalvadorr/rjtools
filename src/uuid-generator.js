@@ -1,7 +1,8 @@
 
 class UUIDGenerator {
   constructor() {
-    this.uuid = require('uuid/v4');
+    const { v4: uuidv4 } = require('uuid');
+    this.uuid = uuidv4;
   }
 
   getUUID() {

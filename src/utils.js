@@ -1,8 +1,9 @@
 
 class Utils {
-  constructor() {
-    this.uuid = require('uuid/v4');
-  }
+  // constructor() {
+  //   const { v4: uuidv4 } = require('uuid');
+  //   this.uuid = require('uuid/v4');
+  // }
 
   convertListToString(list) {
     var str = '';

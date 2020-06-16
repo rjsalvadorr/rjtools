@@ -349,6 +349,9 @@ function triggerError() {
 
 ///// Register event handlers
 
+document.querySelector('#btnJsSnippets').addEventListener('click', () => {
+  handleJsSnippets().then(printOutput, printOutput);
+});
 document.querySelector('#btnTimestamps').addEventListener('click', ()=> {
   handleTimestamps().then(printOutput, printOutput);
 });
@@ -358,21 +361,20 @@ document.querySelector('#btnUUID').addEventListener('click', () => {
 document.querySelector('#btnRandomWords').addEventListener('click', () => {
   handleRandomWords().then(printOutput, printOutput);
 });
-document.querySelector('#btnMarkdown').addEventListener('click', () => {
-  handleMarkdown().then(printOutput, printOutput);
-});
-document.querySelector('#btnRandomProg').addEventListener('click', () => {
-  handleRandomProg().then(printOutput, printOutput);
-});
-document.querySelector('#btnJsSnippets').addEventListener('click', () => {
-  handleJsSnippets().then(printOutput, printOutput);
-});
 document.querySelector('#btnMarkdownPdf').addEventListener('click', setupMarkdownPdfConversion);
 document.querySelector('#btnMarkdownEpub').addEventListener('click', setupMarkdownEpubConversion);
-document.querySelector('#btnDictionarySorter').addEventListener('click', setupDictionarySort);
 document.querySelector('#btnErrorTest').addEventListener('click', ()=> {
   triggerError().then(printOutput, printOutput);
 });
+
+// TODO - remove these functions
+// document.querySelector('#btnMarkdown').addEventListener('click', () => {
+//   handleMarkdown().then(printOutput, printOutput);
+// });
+// document.querySelector('#btnRandomProg').addEventListener('click', () => {
+//   handleRandomProg().then(printOutput, printOutput);
+// });
+// document.querySelector('#btnDictionarySorter').addEventListener('click', setupDictionarySort);
 
 
 

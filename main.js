@@ -18,7 +18,10 @@ function createWindow() {
   let browserWindowSettings = {
     width: 800,
     height: 600,
-    icon: path.join(__dirname, 'img/icon.png')
+    icon: path.join(__dirname, 'img/icon.png'),
+    webPreferences: {
+      nodeIntegration: true
+    }
   };
 
   if (DEBUG_MODE) {

@@ -1,4 +1,3 @@
-
 //////////////////////
 // PRINT STATEMENTS
 
@@ -53,19 +52,19 @@ for(let item of items) {
 /////////////////
 // NULL CHECKS
 
-if(!somethingNully) {
+if(!testVar) {
   // do a thing
 }
 
-if(typeof somethingNully === 'undefined') {
+if(typeof testVar === 'undefined') {
   // do a thing
 }
 
-if(somethingNully == null) {
+if(testVar == null) {
   // do a thing
 }
 
-if(somethingNully == null || typeof somethingNully === 'undefined') {
+if(testVar == null || typeof testVar === 'undefined') {
   // do a thing
 }
 

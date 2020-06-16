@@ -1,4 +1,4 @@
-var NUM_WORDS = 12;
+var NUM_WORDS = 24;
 
 class RandomWordGenerator {
   constructor() {
@@ -10,11 +10,16 @@ class RandomWordGenerator {
     return randomBool ? this.sentencer.make('{{ noun }}') : this.sentencer.make('{{ adjective }}');
   }
 
+  getRandomPair() {
+    var randomBool = Math.random() < 0.5;
+    return `${this.sentencer.make('{{ adjective }}')}-${this.sentencer.make('{{ noun }}')}`;
+  }
+
   getRandomWords(numWords) {
     var wordList = [];
 
     for(var i = 0; i < numWords; i++) {
-      wordList.push(this.getRandomWord());
+      wordList.push(this.getRandomPair());
     }
 
     return wordList;
