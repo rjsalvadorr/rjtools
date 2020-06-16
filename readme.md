@@ -2,14 +2,20 @@
 
 A set of homemade tools/scripts for random computer chores.
 
-## rjmdpdf
+## tech info / usage
 
-A Python script for quickly and easily converting markdown documents to PDF, using `pandoc` and `wkhtmltopdf`.
+dev'ing: `npm start`
 
-## git-scripts
+building executables: `npm run build`
+
+note: this project uses `npm`, not `yarn`
+
+## extras
+
+### git-scripts
 
 Bash scripts for an easier git experience.
 
-## ide-settings
+### ide-settings
 
 Settings for IDEs and other tools (vscode, atom, etc)
