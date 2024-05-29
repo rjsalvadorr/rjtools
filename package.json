@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-css": "node-sass src/css/style.scss css/style.css",
+    "build-css": "sass src/css/style.scss css/style.css",
     "start-app": "electron .",
     "start": "npm run build-css && electron .",
     "build-app": "electron-packager . rjtools --platform=win32,linux,darwin --out=build --overwrite --icon=img/icon.ico",
@@ -30,6 +30,6 @@
   "devDependencies": {
     "electron": "^9.0.4",
     "electron-packager": "^14.2.1",
-    "node-sass": "^4.14.1"
+    "sass": "^1.49.9"
   }
 }
